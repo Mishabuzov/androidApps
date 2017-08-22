@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    card_view:cardElevation="3dp"
+    card_view:cardUseCompatPadding="true"
+>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="@dimen/margin_22"
+                  android:orientation="vertical">
+
+        <com.kpfu.mikhail.weathermvp.widget.textviews.RobotoRegularTextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="@string/date"
+            android:textSize="@dimen/text.20"
+            android:textColor="@color/secondary_text2"
+        />
+
+        <com.kpfu.mikhail.weathermvp.widget.textviews.RobotoBoldTextView
+            android:id="@+id/main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/descr"
+            android:textSize="22sp"
+            android:layout_marginTop="@dimen/margin_10"
+        />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/margin_5"
+            android:layout_marginTop="@dimen/margin_10"
+
+        >
+
+            <ImageView
+                android:id="@+id/icon_temp"
+                android:layout_width="@dimen/size_40"
+                android:layout_height="@dimen/size_40"
+                android:background="@drawable/temperature"
+                android:layout_marginRight="@dimen/margin_15"
+                android:layout_marginEnd="@dimen/margin_15"
+            />
+
+            <com.kpfu.mikhail.weathermvp.widget.textviews.RobotoRegularTextView
+                android:id="@+id/temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temp"
+                android:textSize="@dimen/text.18"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_5"
+                android:layout_marginEnd="@dimen/margin_5"
+            />
+            <com.kpfu.mikhail.weathermvp.widget.textviews.RobotoRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temp"
+                android:textSize="@dimen/text.18"
+                android:layout_centerVertical="true"
+                android:id="@+id/textView"
+                android:layout_toRightOf="@+id/icon_temp"
+                android:layout_toEndOf="@+id/icon_temp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/margin_5"
+            android:layout_marginTop="@dimen/margin_10"
+        >
+
+            <ImageView
+                android:id="@+id/icon_press"
+                android:layout_width="@dimen/size_40"
+                android:layout_height="@dimen/size_40"
+                android:background="@drawable/pressure"
+                android:layout_marginRight="@dimen/margin_15"
+                android:layout_marginEnd="@dimen/margin_15"
+            />
+
+            <com.kpfu.mikhail.weathermvp.widget.textviews.RobotoRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/press"
+                android:textSize="@dimen/text.18"
+                android:layout_toRightOf="@+id/icon_press"
+                android:layout_toEndOf="@+id/icon_press"
+                android:layout_centerVertical="true"
+            />
+
+            <com.kpfu.mikhail.weathermvp.widget.textviews.RobotoRegularTextView
+                android:id="@+id/press"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/press"
+                android:textSize="@dimen/text.18"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_5"
+                android:layout_marginEnd="@dimen/margin_5"
+            />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/margin_5"
+            android:layout_marginTop="@dimen/margin_10"
+        >
+
+            <ImageView
+                android:id="@+id/icon_humidity"
+                android:layout_width="@dimen/size_40"
+                android:layout_height="@dimen/size_40"
+                android:background="@drawable/humidity"
+                android:layout_marginRight="@dimen/margin_15"
+                android:layout_marginEnd="@dimen/margin_15"
+            />
+
+            <com.kpfu.mikhail.weathermvp.widget.textviews.RobotoRegularTextView
+                android:id="@+id/humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/humid"
+                android:textSize="@dimen/text.18"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_5"
+                android:layout_marginEnd="@dimen/margin_5"
+            />
+            <com.kpfu.mikhail.weathermvp.widget.textviews.RobotoRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/humid"
+                android:textSize="@dimen/text.18"
+                android:layout_centerVertical="true" android:layout_toRightOf="@+id/icon_humidity"
+                android:layout_toEndOf="@+id/icon_humidity"
+                android:id="@+id/robotoRegularTextView"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/margin_5"
+            android:layout_marginTop="@dimen/margin_10"
+        >
+
+            <ImageView
+                android:id="@+id/icon_w_speed"
+                android:layout_width="@dimen/size_40"
+                android:layout_height="@dimen/size_40"
+                android:background="@drawable/wind_speed"
+                android:layout_marginRight="@dimen/margin_15"
+                android:layout_marginEnd="@dimen/margin_15"
+            />
+
+            <com.kpfu.mikhail.weathermvp.widget.textviews.RobotoRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wind_speed"
+                android:textSize="@dimen/text.18"
+                android:layout_toRightOf="@+id/icon_w_speed"
+                android:layout_toEndOf="@+id/icon_w_speed"
+                android:layout_centerVertical="true"
+            />
+
+            <com.kpfu.mikhail.weathermvp.widget.textviews.RobotoRegularTextView
+                android:id="@+id/wind_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wind_speed"
+                android:textSize="@dimen/text.18"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_5"
+                android:layout_marginEnd="@dimen/margin_5"
+            />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
