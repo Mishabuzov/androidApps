@@ -1,0 +1,51 @@
+<LinearLayout
+    android:id="@+id/response_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:background="@color/task_details_responder_bottom_color"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:layout_gravity="bottom">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/done"
+    />
+
+    <com.fsep.sova.textviews.RobotoRegularTextView
+        android:id="@+id/tv_participation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:text="@string/task_detail.response_sent"
+        android:textSize="16sp"
+    />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/response_cancel_button"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/task_detail.response_cancel"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+

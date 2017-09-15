@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/education_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <com.fsep.sova.textviews.RobotoBoldTextView
+        android:id="@+id/orgNameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black_text"
+        tools:text="Google"
+        />
+
+    <com.fsep.sova.textviews.RobotoRegularTextView
+        android:id="@+id/workPostTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black_text"
+        tools:text="Mexican Senior"
+        android:layout_marginTop="8dp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <com.fsep.sova.textviews.RobotoRegularTextView
+            android:id="@+id/periodTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/secondary_text_color"
+            tools:text="2014 - 2018"
+            />
+
+        <com.fsep.sova.textviews.RobotoRegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/secondary_text_color"
+            tools:text="."
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            />
+
+        <com.fsep.sova.textviews.RobotoRegularTextView
+            android:id="@+id/workPlaceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/secondary_text_color"
+            tools:text="Mexico City"
+            android:layout_marginLeft="3dp"
+            android:layout_marginStart="3dp"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

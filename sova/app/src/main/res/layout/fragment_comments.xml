@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    android:id="@+id/swipe_refresh_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_top"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/toolbar_color"
+            android:elevation="10dp"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        >
+                <Button
+                    android:id="@+id/back_btn"
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="@dimen/icons_size.small"
+                    android:layout_height="@dimen/icons_size.small"
+                    android:background="@drawable/back"
+                />
+
+        </android.support.v7.widget.Toolbar>
+
+
+        <RelativeLayout
+            android:id="@+id/toolbar_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/white"
+            android:elevation="10dp"
+            android:minHeight="30dp"
+            android:gravity="bottom"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingBottom="3dp"
+        >
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/login_text_input_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextLabelForChat"
+                    android:hint="@string/comments.edit.comment"
+                    android:textColorHint="#D1D1D1"
+                    android:layout_gravity="bottom"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:minHeight="10dp"
+                    android:textColor="@android:color/black"
+                    android:layout_toLeftOf="@+id/send_btn"
+                    android:layout_toStartOf="@+id/send_btn"
+                >
+
+                    <EditText
+                        android:id="@+id/toolbar_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textCursorDrawable="@null"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:maxLines="3"
+                        />
+
+                </android.support.design.widget.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/send_btn"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:src="@drawable/send"
+                android:layout_alignBottom="@+id/login_text_input_layout"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_above="@id/toolbar_bottom"
+            android:layout_below="@id/toolbar_top"
+            android:background="@android:color/white"
+        />
+
+    </RelativeLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>

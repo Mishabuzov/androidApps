@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/colorAuthorization"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingLeft="30dp"
+              android:paddingRight="30dp">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:background="@drawable/button"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="70dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/register.label_for_code"
+        android:textColor="@color/registerTextViewColor"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:layout_marginBottom="30dp"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/register_code_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel"
+        >
+
+        <EditText
+            android:id="@+id/register_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/registerTextViewColor"
+            android:hint="@string/register.code"
+            android:textSize="20sp"
+            android:lines="1"
+            android:singleLine="true"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/my_register_button"
+        android:text="@string/register.confirm"
+        android:textColor="@color/registerTextViewColor"
+        android:textSize="18sp"/>
+
+
+</LinearLayout>

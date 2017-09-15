@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="20dp"
+              android:layout_marginRight="20dp"
+              android:layout_marginTop="25dp"
+    >
+
+    <FrameLayout
+        android:id="@+id/menu_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ic_menu_item"
+            android:layout_width="@dimen/menu_icon_size"
+            android:layout_height="@dimen/menu_icon_size"
+            tools:background="@drawable/dashboard"
+            />
+
+        <com.fsep.sova.textviews.RobotoMediumTextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Lenta"
+            android:textColor="@color/menu_name_color"
+            android:textSize="16sp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginStart="60dp"
+            android:layout_gravity="center_vertical"
+            />
+
+        <com.fsep.sova.textviews.RobotoMediumTextView
+            android:id="@+id/counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/menu_counter_color"
+            android:textSize="16sp"
+            tools:text="2222"
+            android:layout_gravity="end|center"
+            />
+
+    </FrameLayout>
+
+
+</LinearLayout>

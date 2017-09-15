@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/allocatedBackgroundColor"
+              android:padding="12dp"
+              android:layout_marginTop="10dp"
+              android:gravity="center_vertical"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/doc_icon"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        >
+
+        <com.fsep.sova.textviews.RobotoRegularTextView
+            android:id="@+id/document_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_text"
+            android:textSize="16sp"
+            tools:text="Document.pdf"
+            />
+
+        <com.fsep.sova.textviews.RobotoRegularTextView
+            android:id="@+id/document_params"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/doc_format_text_color"
+            android:textSize="12sp"
+            tools:text="pdf, 40mb"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

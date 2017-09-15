@@ -1,0 +1,240 @@
+<resources>
+    <string name="app_name">SOVA</string>
+
+    <!--MESSAGES-->
+    <string name="content.loading">Загрузка…</string>
+    <string name="content.network.error.try.again">Повторить попытку</string>
+    <string name="content.error.something.wrong">Что-то пошло не так, попытайтесь обновить позже</string>
+    <string name="content.network.error.message">При загрузке произошла ошибка, проверьте подключение к интернету</string>
+    <string name="content.error">Ошибка</string>
+
+
+    <!-- Tasks screen-->
+    <string name="tasks.content.list.empty_message">Нет доступных заданий</string>
+    <string name="task.details.menu.edit.task">Редактировать задачу</string>
+    <string name="login.authorization">Логин или Почта</string>
+    <string name="password.authorization">Пароль</string>
+    <string name="signin.authorization">Войти</string>
+    <string name="register.authorization">Зарегистрироваться</string>
+    <string name="task_details.response_button">Откликнуться на задачу</string>
+    <string name="task_detail.response_sent">Отклик отправлен</string>
+    <string name="task_detail.responder_was_found">Исполнитель определен</string>
+    <string name="task_detail.my_responder">Сообщения</string>
+    <string name="task_detail.response_cancel">Отменить</string>
+
+    <string name="status_hunting">Поиск исполнителя</string>
+    <string name="status_working">В работе</string>
+    <string name="status_accepted">Задача принята</string>
+    <string name="status_done">Задача завершена</string>
+
+    <string name="login.error.edit.text">Введите логин</string>
+    <string name="password.error.edit.text">Введите пароль</string>
+    <string name="phone.error.edit.text">Введите телефон</string>
+    <string name="phone.code.error.edit.text">Введите код подтверждения!</string>
+    <string name="name.error.edit.text">Введите Ваше имя</string>
+    <string name="surname.error.edit.text">Введите Вашу фамилию</string>
+
+    <string name="authorization.error.message">Ошибка авторизации</string>
+    <string name="forget.button">Забыли?</string>
+
+    <string name="main_display.online">В работе</string>
+    <string name="main_display.first_text_example">MyPublicWiFi — ещё один отличный вариант создания хотспота
+        WiFi на компьютере, причем совершенно бесплатный и ничем практически не уступающий по функционалу
+        программе Connectify.</string>
+
+    <string name="main_display.point">.</string>
+
+    <string name="main_display.second_text_example">Затем, Вы увидите окно, в котором доступны
+        3 основных параметра настройки хотспота.
+        Подключение к Интернет, которое будет доступно клиентам.</string>
+
+    <!--Events screen-->
+    <string name="status.search">Набор участников</string>
+    <string name="status.going">Событие идёт</string>
+    <string name="status.passed">Событие завершено</string>
+
+    <!--Posts screen-->
+    <string name="posts.content.empty.message">Нет доступных постов</string>
+
+    <!--Notes screen-->
+    <string name="notes.content.empty.message">У вас ещё нет событий в ленте :(</string>
+
+    <!-- Comments screen-->
+    <string name="comments.content.list.empty_message">Ещё нет ни одного комментария</string>
+    <string name="comments.edit.comment">Введите новый коммент</string>
+
+    <!--Chat screen-->
+    <string name="chat.edit.message">Введите сообщение</string>
+    <string name="chat.status.readable.needs_review">требуется пересмотр</string>
+    <string name="chat.status.readable.approved">одобрено</string>
+    <string name="chat.status.readable.in_progress">в процессе</string>
+    <string name="chat.empty.message">У Вас пока еще нет сообщений</string>
+    <string name="chat.error.loading.messages">Не удалось загрузить сообщения</string>
+    <string name="chat.error.loading.media">Не удалось загрузить медиа ресурсы</string>
+    <string name="chat.add.label.menu.needs_review">Требуется пересмотр</string>
+    <string name="chat.add.label.menu.approved">Одобрено</string>
+    <string name="chat.add.label.menu.in_progress">В процессе</string>
+    <string name="chat.add.label.menu.delete_label">Убрать метку</string>
+    <string name="chat.change_label">Изменить статус</string>
+    <string name="chat.cancel_changing_label">Отмена</string>
+    <string-array name="chat_label_statuses">
+        <item>Находится в процессе</item>
+        <item>Требуется пересмотр</item>
+        <item>Одобрен</item>
+        <item>Отмена</item>
+    </string-array>
+
+    <!-- Register sreens -->
+    <string name="register.phone_number.hint"> RU +7 | Телефон</string>
+    <string name="register.phone_number.message">Укажите номер телефона</string>
+    <string name="register.next"> Далее</string>
+    <string name="register.confirm"> Подтвердить</string>
+    <string name="register.name"> Имя</string>
+    <string name="register.surname"> Фамилия</string>
+    <string name="register.login"> Логин</string>
+    <string name="register.code"> Код подтверждения</string>
+    <string name="register.label_for_code"> Введите код подтверждения из SMS, отправленного на номер</string>
+
+    <!--navigation items-->
+    <string name="nav.dashboard">Лента</string>
+    <string name="nav.my_tasks">Мои задачи</string>
+    <string name="nav.my_events">Мои события</string>
+    <string name="nav.notifications">Уведомления</string>
+    <string name="nav.favourites">Избранное</string>
+    <string name="nav.search">Поиск</string>
+
+
+    <!--sentInvitations screen-->
+    <string name="invitation.btn_accept">Принять</string>
+    <string name="invitation.btn_decline">Отклонить</string>
+
+    <!--add task activity-->
+    <string name="add.task.enter_title">Введите заголовок</string>
+    <string name="add.task.enter_description">Введите описание</string>
+    <string name="add.task.choose_date">Выберите дату дедалйна</string>
+    <string name="add.task.add_tag">Добавить тег</string>
+    <string name="add.task.open_task">Это открытая задача</string>
+    <string name="add.task.closed_task">Это закрытая задача</string>
+    <string name="add.task.menu.add_task_done">Добавить задачу</string>
+    <string name="add.task.context.menu.item_photo">Фотографию</string>
+    <string name="add.task.context.menu.item_video">Видеозапись</string>
+    <string name="add.task.context.menu.item_doc">Документ</string>
+    <string name="add.photo.dialog.title">Фотография</string>
+    <string-array name="add_photo_dialog_list_items">
+        <item>Загрузить из галереи</item>
+        <item>Сделать снимок</item>
+    </string-array>
+    <string name="add.video.dialog.title">Видеозапись</string>
+    <string name="add.task.search">Найти...</string>
+    <string-array name="add_video_dialog_list_items">
+        <item>Записать видео</item>
+        <item>Выбрать существующее</item>
+    </string-array>
+    <string name="content.title.empty.error">Поле заголовок обязательно для заполнения</string>
+    <string name="content.deadline.empty.error">Поле дата дедлайна обязательно для заполнения</string>
+    <string name="content.dialog.button_ok">OK</string>
+    <string name="content.dialog.button_cancel">Отмена</string>
+    <string name="attachment.permission.dialog.title.read_file">Чтение файлов</string>
+    <string name="attachment.permission.dialog.content.read_file">Данное разрешение необходимо для прикрепления медифайлов из галереи</string>
+    <string name="attachment.permission.dialog.title.camera">Камера</string>
+    <string name="attachment.permission.dialog.content.camera">Данные разрешения необходимы для прикрепления медифайлов с камеры</string>
+    <string name="content.dialog.error_add_task">Не удалось добавить задачу</string>
+
+    <!--select user activity-->
+    <string name="select_user_activity_select"> Принять</string>
+    <string name="select_user_activity_selected">  Принят</string>
+    <string name="select_user_activity_no_data">Пользователи отсутствуют</string>
+    <string name="select_user_activity_no_responders">Пока ещё никто не откликнулся</string>
+    <string name="content_get_users_error">Не удалось получить пользователей</string>
+
+    <!--task detail fragment-->
+    <string name="task_details.edit_task">Редактировать задачу</string>
+    <string name="task_details.edit_event">Редактировать событие</string>
+    <string name="task_details.edit_post">Редактировать пост</string>
+    <string name="task_details.finish_task">Завершить задачу</string>
+    <string name="task_details.remove_task">Удалить задачу</string>
+    <string name="task_details.remove_event">Удалить событие</string>
+    <string name="task_details.remove_post">Удалить пост</string>
+    <string name="task_details.tv_participation">Вы участвуете</string>
+    <string name="task_details.decline_participation">Отказаться</string>
+    <string name="task_details.participate">Принять участие</string>
+
+    <!--searches activities-->
+    <string name="empty_people_display">Никто не найден</string>
+    <string name="name_surname_format">"%1$s %2$s"</string>
+    <string name="empty_tags_display">Теги не найдены</string>
+    <string name="publishes_count_adding"> публикаций</string>
+    <string name="empty_tasks_display">Задачи не найдены</string>
+    <string name="tab.title.tags">ТЕГИ</string>
+    <string name="tab.title.users">ЛЮДИ</string>
+    <string name="tab.title.tasks">ЗАДАЧИ</string>
+
+    <!--Profile activity-->
+    <string name="profile_general_info_string">ОСНОВНАЯ ИНФОРМАЦИЯ</string>
+    <string name="profile_education_string">ОБРАЗОВАНИЕ</string>
+    <string name="profile_experience_string">ОПЫТ РАБОТЫ</string>
+    <string name="profile_skills_string">КЛЮЧЕВЫЕ НАВЫКИ</string>
+    <string name="profile_responders_count">подписчиков</string>
+    <string name="profile_responses_count">подписок</string>
+    <string name="profile_posts_count">постов</string>
+    <string name="profile_birthday">День Рождения:</string>
+    <string name="profile_country">Страна:</string>
+    <string name="profile_city">Город:</string>
+
+    <!--education_empty_profile-->
+    <string name="education_level">Уровень</string>
+    <string name="education_country">Страна</string>
+    <string name="education_city">Город</string>
+    <string name="education_center_name">Учебное заведение</string>
+    <string name="education_begin_year">Год начала</string>
+    <string name="education_end_year">Год окончания</string>
+    <string name="education_is_current">Учусь в настоящее время</string>
+    <string name="education_lvl_medium">Среднее</string>
+    <string name="education_lvl_hard">Высшее</string>
+    <string name="job_company_name">Компания</string>
+    <string name="job_post">Должность</string>
+    <string name="job_is_current">Работаю в настоящее время</string>
+    <string name="edu_chose_lvl_ok_btn">Выбрать</string>
+    <string name="edu_chose_lvl_header">Образование</string>
+    <string name="edu_lvl_empty_choice_toast">Выберите уровень образования</string>
+    <string name="country_empty_choice_toast">Выберите страну, где обучались</string>
+    <string name="edu_city_empty_choice_toast">Укажите город, где обучались</string>
+    <string name="edu_univer_name_empty_choice_toast">Укажите название учебного заведения</string>
+    <string name="edu_begin_year_empty_choice_toast">Укажите корректный год начала обучения</string>
+    <string name="edu_end_year_empty_choice_toast">Укажите корректный год окончания обучения</string>
+    <string name="edu_study_period_empty_choice_toast">Неверно указан учебный период</string>
+    <string name="job_country_empty_choice_toast">Выберите страну, где работали</string>
+    <string name="job_city_empty_choice_toast">Укажите город, где работали</string>
+    <string name="job_company_empty_choice_toast">Укажите название компании</string>
+    <string name="job_job_empty_choice_toast">Укажите должность</string>
+    <string name="job_begin_year_empty_choice_toast">Укажите корректный год начала работы</string>
+    <string name="job_end_year_empty_choice_toast">Укажите корректный год окончания работы</string>
+    <string name="job_work_period_empty_choice_toast">Неверно указан рабочий период</string>
+    <string name="edu_exit_dialog_title">Выход</string>
+    <string name="edu_exit_dialog_description">Введённые данные будут утеряны, продолжить?</string>
+    <string name="edu_exit_dialog_positive">Да</string>
+    <string name="edu_exit_dialog_negative">Нет</string>
+    <string name="edu_exit_dialog_neutral">Отмена</string>
+    <string name="edu_choose_city_before_country_error">Сначала выберите страну</string>
+
+    <!--Edit Profile-->
+    <string name="menu.edit_profile">Редактировать профиль</string>
+    <string name="edit.profile.fragment.tv_add_education">Добавить учебное заведение</string>
+    <string name="edit.profile.fragment.tv_add_work_experience">Добавить место работы</string>
+    <string name="title_activity_city_search">CitySearchActivity</string>
+    <string name="empty_cities_display">Города не найдены</string>
+    <string name="empty_countries_display">Страны не найдены</string>
+    <string name="exit_dialog_text">Сохранить изменения перед выходом?</string>
+    <string name="exit_dialog_title">Выход</string>
+    <string name="exit_dialog_positive_item">Да</string>
+    <string name="exit_dialog_negative_item">Нет</string>
+    <string name="exit_dialog_neutral_item">Отмена</string>
+    <string name="profile_successfully_updated">Профиль обновлён!</string>
+    <string name="profile_update_error">Не удалось обновить профиль</string>
+    <string name="good_finish_btn_text">Готово</string>
+    <string name="profile_edit_name">Имя</string>
+    <string name="profile_edit_surname">Фамилия</string>
+    <string name="profile_edit_nickname">Ник</string>
+    <string name="profile_edit_add_skill">Добавить навык</string>
+    <string name="profile_edit_empty_names">Имя, Фамилия или Ник не должны быть путсыми</string>
+</resources>

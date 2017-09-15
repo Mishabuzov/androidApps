@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_top"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/black"
+        android:alpha="0.9"
+        android:elevation="10dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        >
+
+        <Button
+            android:id="@+id/back_btn"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="@dimen/icons_size.small"
+            android:layout_height="@dimen/icons_size.small"
+            android:background="@drawable/white_back"
+            />
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/toolbar_top"
+        android:background="@android:color/black"
+        android:alpha="0.9"
+        >
+
+        <GridLayout
+            android:id="@+id/grid_for_images"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+        </GridLayout>
+
+    </ScrollView>
+</RelativeLayout>

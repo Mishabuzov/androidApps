@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="3dp"
+    card_view:cardUseCompatPadding="true"
+    android:background="@android:color/white"
+    >
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp"
+        >
+
+      <RelativeLayout
+          android:id="@+id/user_layout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          >
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/item_avatar_size"
+            android:layout_height="@dimen/item_avatar_size"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="30dip"
+            app:riv_oval="false"
+            tools:src="@drawable/stalin"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/avatar"
+            android:layout_toRightOf="@+id/avatar"
+            android:orientation="vertical"
+            >
+
+          <com.fsep.sova.textviews.RobotoMediumTextView
+              android:id="@+id/tv_name"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textSize="16sp"
+              tools:text="Name and Surname"
+              />
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              >
+
+
+            <com.fsep.sova.textviews.RobotoRegularTextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                tools:text="Date"
+                />
+
+              <com.fsep.sova.textviews.RobotoRegularTextView
+                  android:layout_marginLeft="3dp"
+                  android:layout_marginStart="3dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="16sp"
+                  tools:text="@string/main_display.point"
+                  />
+
+            <com.fsep.sova.textviews.RobotoRegularTextView
+                android:id="@+id/tv_place"
+                android:layout_marginLeft="3dp"
+                android:layout_marginStart="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                tools:text="place"
+                />
+
+          </LinearLayout>
+
+        </LinearLayout>
+
+      </RelativeLayout>
+
+
+      <LinearLayout
+          android:id="@+id/status_layout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="10dp"
+          android:layout_marginTop="10dp"
+          android:orientation="horizontal"
+          android:visibility="gone"
+          >
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/task_status_color"
+            android:layout_width="@dimen/item_green_point_size"
+            android:layout_height="@dimen/item_green_point_size"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@color/status_working_color"
+            app:riv_corner_radius="60dip"
+            />
+
+
+        <com.fsep.sova.textviews.RobotoRegularTextView
+            android:id="@+id/tv_task_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_display.online"
+            android:textSize="16sp"
+            />
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/deadline_layout"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@drawable/layout_display_bg"
+          android:orientation="horizontal"
+          android:padding="4dp"
+          android:visibility="gone"
+          >
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/clock"
+            />
+
+
+        <com.fsep.sova.textviews.RobotoRegularTextView
+            android:id="@+id/tv_deadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp"
+            tools:text="Date and Time"
+            />
+
+      </LinearLayout>
+
+      <com.fsep.sova.textviews.RobotoBoldTextView
+          android:id="@+id/tv_title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="15dp"
+          android:text="@string/main_display.first_text_example"
+          android:textSize="18sp"
+          android:textStyle="bold"
+          />
+
+      <com.fsep.sova.textviews.RobotoRegularTextView
+          android:id="@+id/tv_description"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="12dp"
+          android:text="@string/main_display.second_text_example"
+          android:textSize="16sp"
+          />
+
+      <ImageView
+          android:id="@+id/iv_cover"
+          android:layout_width="match_parent"
+          android:layout_height="150dp"
+          tools:background="@drawable/stalin"
+          android:layout_marginTop="20dp"
+          android:visibility="gone"
+          android:scaleType="centerCrop"
+          />
+
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fadingEdge="horizontal"
+        android:scrollbars="none"
+        >
+
+      <LinearLayout
+          android:id="@+id/tags_scroll_view"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="horizontal"
+          android:layout_marginLeft="11dp"
+          android:layout_marginStart="11dp"
+          android:layout_marginBottom="10dp"
+          android:layout_marginTop="15dp"
+          android:visibility="gone"
+          >
+
+      </LinearLayout>
+    </HorizontalScrollView>
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/allocatedBackgroundColor"
+        />
+
+    <FrameLayout
+        android:id="@+id/functional_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingStart="5dp"
+        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
+        android:visibility="visible"
+        >
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          >
+
+        <Button
+            android:id="@+id/btn_like"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:minWidth="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/likes_marginRight_size"
+            android:layout_marginRight="@dimen/likes_marginRight_size"
+            android:drawableLeft="@drawable/heart"
+            android:drawablePadding="@dimen/drawable_padding_size"
+            android:drawableStart="@drawable/heart"
+            android:gravity="start|center_vertical"
+            android:paddingLeft="@dimen/likes_padding_size"
+            android:paddingRight="@dimen/likes_padding_size"
+            android:text="1"
+            android:textColor="@color/like_text_color"
+            android:textSize="16sp"
+            android:padding="@dimen/likes_padding_size"
+            />
+
+        <Button
+            android:id="@+id/btn_comment"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/likes_marginRight_size"
+            android:layout_marginRight="@dimen/likes_marginRight_size"
+            android:drawableLeft="@drawable/comment"
+            android:drawablePadding="@dimen/drawable_padding_size"
+            android:drawableStart="@drawable/comment"
+            android:gravity="start|center_vertical"
+            android:paddingEnd="0dp"
+            android:paddingLeft="@dimen/likes_padding_size"
+            android:paddingRight="0dp"
+            android:text="1111"
+            android:textColor="@color/like_text_color"
+            android:textSize="16sp"
+            android:minWidth="1dp"
+            android:padding="@dimen/likes_padding_size"
+            />
+
+        <Button
+            android:id="@+id/btn_responder"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/human"
+            android:drawablePadding="@dimen/drawable_padding_size"
+            android:drawableStart="@drawable/human"
+            android:gravity="start|center_vertical"
+            android:paddingLeft="@dimen/likes_padding_size"
+            android:paddingRight="@dimen/likes_padding_size"
+            android:text="111"
+            android:textColor="@color/like_text_color"
+            android:textSize="16sp"
+            android:minWidth="1dp"
+            android:padding="@dimen/likes_padding_size"
+            android:visibility="gone"
+            />
+
+      </LinearLayout>
+
+
+      <Button
+          android:id="@+id/btn_favourite"
+          style="?attr/borderlessButtonStyle"
+          android:layout_width="@dimen/icons_size"
+          android:layout_height="@dimen/icons_size"
+          android:layout_gravity="center_vertical|end"
+          android:layout_margin="5dp"
+          android:background="@drawable/bookmark"
+          />
+
+    </FrameLayout>
+
+  </LinearLayout>
+
+</android.support.v7.widget.CardView>

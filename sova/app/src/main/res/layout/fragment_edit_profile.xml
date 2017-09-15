@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:id="@+id/main_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+        >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:elevation="1dp"
+                android:orientation="vertical"
+                android:padding="20dp"
+            >
+
+                <LinearLayout
+                    android:id="@+id/user_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                >
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/avatar"
+                        android:layout_width="@dimen/item_avatar_large_size"
+                        android:layout_height="@dimen/item_avatar_large_size"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="centerCrop"
+                        app:riv_corner_radius="40dip"
+                        app:riv_oval="false"
+                        tools:src="@drawable/stalin"
+                    />
+
+                    <LinearLayout
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical"
+                    >
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/name_input_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/TextLabelForEditingNameAndSurname">
+
+                            <EditText
+                                android:id="@+id/edit_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/profile_edit_name"
+                                android:textColor="@color/black_text"
+                                android:textColorHint="@color/secondary_text_color"
+                                android:textSize="18sp"
+                            />
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/surname_input_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:theme="@style/TextLabelForEditingNameAndSurname">
+
+                            <EditText
+                                android:id="@+id/edit_surname"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/profile_edit_surname"
+                                android:textColor="@color/black_text"
+                                android:textColorHint="@color/secondary_text_color"
+                                android:textSize="18sp"
+                            />
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <!-- <com.fsep.sova.textviews.RobotoMediumTextView
+                             android:id="@+id/tv_name"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginTop="3dp"
+                             android:textColor="@color/black_text"
+                             android:textSize="18sp"
+                             tools:text="Name and Surname"
+                             />-->
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/nickname_input_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:theme="@style/TextLabelForEditingNameAndSurname">
+
+                            <EditText
+                                android:id="@+id/edit_nickname"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/profile_edit_nickname"
+                                android:textColor="@color/black_text"
+                                android:textColorHint="@color/secondary_text_color"
+                                android:textSize="18sp"
+                            />
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <!--  <com.fsep.sova.textviews.RobotoRegularTextView
+                              android:id="@+id/tv_email"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_marginTop="1dp"
+                              android:textColor="@color/secondary_text_color"
+                              android:textSize="16sp"
+                              tools:text="/@Text.ru"/>-->
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/et_CV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/secondary_text_color_2"
+                    android:textSize="16sp"
+                    tools:text="ReiativeLayout (относительная разметка) находится в разделе Layouts и позволяет дочерним компонентам определять свою позицию относительно родительского компонента или относительно соседних дочерних элементов (по идентификатору элемента)."
+                />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/profile_paragraph_name"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+            >
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_general_info_string"
+                    android:textColor="@color/secondary_text_color_2"
+                    android:textSize="18sp"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:elevation="1dp"
+                android:orientation="vertical"
+                android:padding="20dp"
+            >
+
+                <LinearLayout
+                    android:id="@+id/ll_profile_birthday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.fsep.sova.textviews.RobotoRegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:text="@string/profile_birthday"
+                        android:textColor="@color/secondary_text_color"
+                        android:textSize="14sp"
+                    />
+
+                    <com.fsep.sova.textviews.RobotoRegularTextView
+                        android:id="@+id/user_birthday_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black_text"
+                        android:textSize="16sp"
+                        tools:text="1 april 2222 year"
+                    />
+
+                </LinearLayout>
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/profile_country"
+                    android:textColor="@color/secondary_text_color"
+                    android:textSize="14sp"
+                />
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:id="@+id/user_country_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_text"
+                    android:textSize="16sp"
+                    tools:text="Mexico"
+                />
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/profile_city"
+                    android:textColor="@color/secondary_text_color"
+                    android:textSize="14sp"
+                />
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:id="@+id/user_city_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_text"
+                    android:textSize="16sp"
+                    tools:text="Mexico City"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/header_of_education_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/profile_paragraph_name"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:visibility="gone"
+            >
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_education_string"
+                    android:textColor="@color/secondary_text_color_2"
+                    android:textSize="18sp"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/education_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:elevation="1dp"
+                android:orientation="vertical"
+                android:paddingBottom="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="30dp"
+                android:visibility="gone"
+            />
+
+            <LinearLayout
+                android:id="@+id/header_of_experience_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/profile_paragraph_name"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+            >
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_experience_string"
+                    android:textColor="@color/secondary_text_color_2"
+                    android:textSize="18sp"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/experience_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:elevation="1dp"
+                android:orientation="vertical"
+                android:paddingBottom="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="20dp"/>
+
+
+            <LinearLayout
+                android:id="@+id/header_of_skills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/profile_paragraph_name"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:visibility="gone"
+            >
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_skills_string"
+                    android:textColor="@color/secondary_text_color_2"
+                    android:textSize="18sp"
+                />
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:elevation="1dp"
+                android:fadingEdge="horizontal"
+                android:scrollbars="none"
+            >
+
+                <LinearLayout
+                    android:id="@+id/tags_skills_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:paddingEnd="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingStart="20dp"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/et_add_tag"
+                        android:textSize="16sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingRight="@dimen/tag_padding_size_right"
+                        android:paddingEnd="@dimen/tag_padding_size_right"
+                        android:paddingLeft="@dimen/tag_padding_size_left"
+                        android:paddingStart="@dimen/tag_padding_size_left"
+                        android:background="@drawable/edit_text_bottom_border"
+                        android:gravity="center_vertical"
+                        android:hint="@string/profile_edit_add_skill"
+                        android:imeOptions="actionDone"
+                        android:layout_gravity="center_vertical"
+                        android:lines="1"
+                        android:singleLine="true"/>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:background="@color/profile_paragraph_name"
+            />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

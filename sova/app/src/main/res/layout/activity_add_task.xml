@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical"
+              tools:context="com.fsep.sova.activities.AddTaskActivity">
+
+    <include layout="@layout/toolbar"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/edit_text_bottom_border"
+                    android:hint="@string/add.task.enter_title"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/colorAccent"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/et_description"
+                        android:textSize="18sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/edit_text_bottom_border"
+                        android:hint="@string/add.task.enter_description"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="24dp"
+                        >
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/add_date"
+                            />
+
+                        <com.fsep.sova.textviews.RobotoRegularTextView
+                            android:textSize="16sp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:id="@+id/tv_choose_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/date_layout_new_task_fragment"
+                            android:drawablePadding="12dp"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="15dp"
+                            android:text="@string/add.task.choose_date"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical">
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fadingEdge="horizontal"
+                        android:scrollbars="none"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/images_scroll_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            />
+                    </HorizontalScrollView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginRight="12dp"
+                            android:src="@drawable/add_tag"/>
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fadingEdge="horizontal"
+                            android:scrollbars="none"
+                            >
+
+                            <LinearLayout
+                                android:id="@+id/tags_scroll_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/et_add_tag"
+                                    android:textSize="16sp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingRight="@dimen/tag_padding_size_right"
+                                    android:paddingEnd="@dimen/tag_padding_size_right"
+                                    android:paddingLeft="@dimen/tag_padding_size_left"
+                                    android:paddingStart="@dimen/tag_padding_size_left"
+                                    android:background="@drawable/edit_text_bottom_border"
+                                    android:gravity="center_vertical"
+                                    android:hint="@string/add.task.add_tag"
+                                    android:imeOptions="actionDone"
+                                    android:layout_gravity="center_vertical"
+                                    android:lines="1"
+                                    android:singleLine="true"/>
+
+                            </LinearLayout>
+                        </HorizontalScrollView>
+
+                    </LinearLayout>
+
+                    <com.fsep.sova.textviews.RobotoItalicTextView
+                        android:id="@+id/tv_task_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/add.task.open_task"
+                        android:textSize="14sp"
+                        android:textStyle="italic"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/add_task_tab_icon_size"
+                        android:layout_height="@dimen/add_task_tab_icon_size"
+                        android:orientation="vertical"
+                        >
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/iv_add_user"
+                            android:layout_width="@dimen/add_task_tab_icon_size"
+                            android:layout_height="@dimen/add_task_tab_icon_size"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="4dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/add_user"
+                            app:riv_corner_radius="30dip"
+                            app:riv_oval="false"
+                            />
+
+
+                        <!--todo set button style-->
+                        <ImageView
+                            android:id="@+id/iv_add_user_check"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/photo_image_bg"
+                            android:scaleType="center"
+                            android:src="@drawable/check"
+                            android:visibility="gone"
+                            />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/add_task_tab_icon_size"
+                        android:layout_height="@dimen/add_task_tab_icon_size"
+                        android:orientation="vertical"
+                        >
+
+                        <ImageView
+                            android:id="@+id/iv_add_file"
+                            android:layout_width="@dimen/add_task_tab_icon_size"
+                            android:layout_height="@dimen/add_task_tab_icon_size"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="4dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/add_file"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/add_task_tab_icon_size"
+                        android:layout_height="@dimen/add_task_tab_icon_size"
+                        android:orientation="vertical"
+                        >
+
+                        <ImageView
+                            android:id="@+id/iv_add_image"
+                            android:layout_width="@dimen/add_task_tab_icon_size"
+                            android:layout_height="@dimen/add_task_tab_icon_size"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="4dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/add_photo"
+                            />
+
+
+                        <!--todo set button style-->
+                        <ImageView
+                            android:id="@+id/iv_add_image_check"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/photo_image_bg"
+                            android:scaleType="center"
+                            android:src="@drawable/check"
+                            android:visibility="gone"
+                            />
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

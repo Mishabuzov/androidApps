@@ -1,0 +1,47 @@
+<RelativeLayout
+    android:id="@+id/my_responder_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_gravity="bottom"
+    android:background="@color/task_details_responder_bottom_color"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    >
+
+    <com.fsep.sova.textviews.RobotoRegularTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/task_detail.my_responder"
+        android:textColor="@color/black_text"
+        android:textSize="20sp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        >
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/item_avatar_small_size"
+            android:layout_height="@dimen/item_avatar_small_size"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="30dip"
+            app:riv_oval="false"
+            tools:src="@drawable/stalin"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

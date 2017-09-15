@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="@dimen/add_task_photo_width"
+                android:layout_height="@dimen/add_task_photo_height"
+                android:layout_marginTop="@dimen/micro_image_marginTop"
+                android:orientation="vertical">
+
+    <View
+        android:id="@+id/ticket_media"
+        android:layout_width="@dimen/add_task_photo_width"
+        android:layout_height="@dimen/add_task_photo_width"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/attachment_file_bg"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tv_file_extension"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="PDF"
+            android:textColor="@color/attachment_file_title_bg"
+            android:textSize="20sp"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/tv_file_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:maxLines="1"
+            android:text="Назвние файла...."
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+
+
+    <!--todo set button style-->
+    <ImageView
+        android:id="@+id/ticket_image_close_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/photo_image_bg"
+        android:scaleType="center"
+        android:src="@drawable/delete_image"/>
+
+</RelativeLayout>

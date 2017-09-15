@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:elevation="1dp"
+                android:orientation="vertical"
+                android:padding="20dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/user_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/avatar"
+                        android:layout_width="@dimen/item_avatar_large_size"
+                        android:layout_height="@dimen/item_avatar_large_size"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="centerCrop"
+                        tools:src="@drawable/stalin"
+                        app:riv_corner_radius="40dip"
+                        app:riv_oval="false"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical"
+                        >
+
+                        <com.fsep.sova.textviews.RobotoMediumTextView
+                            android:id="@+id/tv_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:textColor="@color/black_text"
+                            android:textSize="18sp"
+                            tools:text="Name and Surname"
+                            />
+
+                        <com.fsep.sova.textviews.RobotoRegularTextView
+                            android:id="@+id/tv_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:textColor="@color/secondary_text_color"
+                            android:textSize="16sp"
+                            tools:text="/@Text.ru"/>
+
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+                        <ImageButton
+                            android:id="@+id/ok_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|right"
+                            android:background="@drawable/btn_ok_profile"
+                            android:minHeight="40dp"
+                            android:minWidth="40dp"
+                            android:src="@drawable/white_ok"
+                            android:visibility="gone"
+                        />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:id="@+id/tv_CV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    tools:text="ReiativeLayout (относительная разметка) находится в разделе Layouts и позволяет дочерним компонентам определять свою позицию относительно родительского компонента или относительно соседних дочерних элементов (по идентификатору элемента)."
+                    android:textColor="@color/secondary_text_color_2"
+                    android:textSize="16sp"
+                    android:visibility="gone"
+                    />
+
+                <GridLayout
+                    android:id="@+id/user_popularity_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/border_for_grid"
+                    android:columnCount="5"
+                    android:horizontalSpacing="2dp"
+                    android:rowCount="1"
+                    android:visibility="gone"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/responders_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:minWidth="115dp"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        >
+
+                        <com.fsep.sova.textviews.RobotoMediumTextView
+                            android:id="@+id/responders_count_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black_text"
+                            android:textSize="16sp"
+                            tools:text="1234"
+                            />
+
+                        <com.fsep.sova.textviews.RobotoRegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/profile_responders_count"
+                            android:textColor="@color/secondary_text_color"
+                            android:textSize="14sp"
+                            />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/responses_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/layout_border_for_profile_grid"
+                        android:gravity="center"
+                        android:minWidth="115dp"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        >
+
+                        <com.fsep.sova.textviews.RobotoMediumTextView
+                            android:id="@+id/responses_count_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textColor="@color/black_text"
+                            android:textSize="16sp"
+                            tools:text="1234"
+                            />
+
+                        <com.fsep.sova.textviews.RobotoRegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/profile_responses_count"
+                            android:textColor="@color/secondary_text_color"
+                            android:textSize="14sp"
+                            />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/posts_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:minWidth="115dp"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        >
+
+                        <com.fsep.sova.textviews.RobotoMediumTextView
+                            android:id="@+id/posts_count_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textColor="@color/black_text"
+                            android:textSize="16sp"
+                            tools:text="1234"
+                            />
+
+                        <com.fsep.sova.textviews.RobotoRegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/profile_posts_count"
+                            android:textColor="@color/secondary_text_color"
+                            android:textSize="14sp"
+                            />
+                    </LinearLayout>
+                </GridLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/profile_paragraph_name"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                >
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_general_info_string"
+                    android:textColor="@color/secondary_text_color_2"
+                    android:textSize="18sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:elevation="1dp"
+                android:orientation="vertical"
+                android:padding="20dp"
+                >
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/profile_birthday"
+                    android:textColor="@color/secondary_text_color"
+                    android:textSize="14sp"
+                    />
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:id="@+id/user_birthday_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="1 april 2222 year"
+                    android:textColor="@color/black_text"
+                    android:textSize="16sp"
+                    />
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/profile_country"
+                    android:textColor="@color/secondary_text_color"
+                    android:textSize="14sp"
+                    />
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:id="@+id/user_country_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Mexico"
+                    android:textColor="@color/black_text"
+                    android:textSize="16sp"
+                    />
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/profile_city"
+                    android:textColor="@color/secondary_text_color"
+                    android:textSize="14sp"
+                    />
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:id="@+id/user_city_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Mexico City"
+                    android:textColor="@color/black_text"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/header_of_education_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/profile_paragraph_name"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:visibility="gone"
+                >
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_education_string"
+                    android:textColor="@color/secondary_text_color_2"
+                    android:textSize="18sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/education_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:elevation="1dp"
+                android:orientation="vertical"
+                android:paddingBottom="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="30dp"
+                android:visibility="gone"
+                />
+
+            <LinearLayout
+                android:id="@+id/header_of_experience_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/profile_paragraph_name"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:visibility="gone"
+                >
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_experience_string"
+                    android:textColor="@color/secondary_text_color_2"
+                    android:textSize="18sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/experience_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:elevation="1dp"
+                android:orientation="vertical"
+                android:paddingBottom="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="30dp"
+                android:visibility="gone"/>
+
+
+            <LinearLayout
+                android:id="@+id/header_of_skills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/profile_paragraph_name"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:visibility="gone"
+                >
+
+                <com.fsep.sova.textviews.RobotoRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_skills_string"
+                    android:textColor="@color/secondary_text_color_2"
+                    android:textSize="18sp"
+                    />
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:elevation="1dp"
+                android:fadingEdge="horizontal"
+                android:scrollbars="none"
+                >
+
+                <LinearLayout
+                    android:id="@+id/tags_skills_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:paddingEnd="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingStart="20dp"
+                    android:visibility="gone">
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:background="@color/profile_paragraph_name"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>

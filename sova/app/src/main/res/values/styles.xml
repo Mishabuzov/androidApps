@@ -1,0 +1,76 @@
+<resources>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Authorization" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/authorizationWindowBackground</item>
+    </style>
+
+    <style name="TextLabel">
+        <item name="android:textColor">@color/secondaryElement</item>
+        <item name="android:textColorHint">@color/secondaryElement</item>
+        <item name="android:textColorHighlight">@color/secondaryElement</item>
+        <item name="android:textColorLink">@color/secondaryElement</item>
+
+        <item name="colorAccent">@color/secondaryElement</item>
+        <item name="colorControlNormal">@color/secondaryElement</item>
+        <item name="colorControlActivated">@android:color/white</item>
+    </style>
+
+    <style name="TextLabelForEditingEducationAndJob">
+        <item name="android:textColor">@color/black_text</item>
+        <item name="android:textColorHint">@color/secondary_text_color</item>
+        <item name="android:textColorHighlight">@color/secondary_text_color</item>
+        <item name="android:textColorLink">@color/secondary_text_color</item>
+
+        <item name="colorAccent">@color/secondary_text_color</item>
+        <item name="colorControlNormal">@color/secondary_text_color</item>
+        <item name="colorControlActivated">@color/secondary_text_color</item>
+    </style>
+
+    <style name="switch_pink">
+
+        <!-- colorAccent is used as the default value for colorControlActivated,
+             which is used to tint widgets -->
+        <item name="colorAccent">@color/colorAuthorizationPink</item>
+
+    </style>
+
+    <style name="TextLabelForChat">
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColorHint">@color/secondaryElement</item>
+        <item name="android:textColorHighlight">@color/secondaryElement</item>
+        <item name="android:textColorLink">@color/secondaryElement</item>
+
+        <item name="colorAccent">@android:color/transparent</item>
+        <item name="colorControlNormal">@android:color/transparent</item>
+        <item name="colorControlActivated">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.AddTask" parent="AppTheme.NoActionBar">
+        <item name="android:homeAsUpIndicator">@drawable/cancel</item>
+    </style>
+
+    <style name="TextAppearance.Widget.IconMenu.Item" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">@dimen/icons_size.small</item>
+        <item name="android:layout_height">@dimen/icons_size.small</item>
+    </style>
+
+    <style name="TextLabelForEditingNameAndSurname">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColorHint">@color/secondary_text_color</item>
+        <item name="android:textColorHighlight">@color/secondary_text_color</item>
+        <item name="android:textColorLink">@color/secondary_text_color</item>
+
+        <item name="colorAccent">@color/secondary_text_color</item>
+        <item name="colorControlNormal">@color/secondary_text_color</item>
+        <item name="colorControlActivated">@color/secondary_text_color</item>
+    </style>
+
+</resources>
