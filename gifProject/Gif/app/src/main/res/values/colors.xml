@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="btn_blue_bg">#03A9FE</color>
+    <color name="error_text_color">#bcbcbc</color>
+    <color name="like_text_color">#959595</color>
+    <color name="allocatedBackgroundColor">#D1D1D1</color>
+    <color name="tag_rect_bg">#676D76</color>
+    <color name="color_nav_header">#333233</color>
+    <color name="colorMenuItemSelectedLayout">#676D76</color>
+    <color name="colorMenuItemSelectedText">#FAFAFA</color>
+    <color name="colorMenuItemUnselectedText">#1F2532</color>
+    <color name="colorMenuItemUnselectedLayout">#FAFAFA</color>
+    <color name="toolbar_color">#FAFAFA</color>
+    <color name="colorAuthorization">#FAFAFA</color>
+    <color name="colorSecondText">#999</color>
+    <color name="black_text">#343434</color>
+    <color name="colorAuthorizationDark">#000</color>
+</resources>

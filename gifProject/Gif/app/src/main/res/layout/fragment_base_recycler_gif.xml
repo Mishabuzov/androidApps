@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include layout="@layout/toolbar" />
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <com.kpfu.mikhail.gif.widget.EmptyRecyclerView
+            android:clipToPadding="false"
+            android:id="@id/recyclerView"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:overScrollMode="never"
+            android:paddingTop="?attr/actionBarSize"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <TextView
+            android:id="@id/empty"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/empty_gifs"
+            android:textColor="@color/error_text_color"
+            android:textSize="@dimen/text.15" />
+    </RelativeLayout>
+
+    <!--<android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_floating_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_input_add"
+        app:backgroundTint="@color/btn_blue_bg"
+        app:layout_anchor="@id/recyclerView"
+        app:layout_anchorGravity="bottom|right|end"/>-->
+
+</android.support.design.widget.CoordinatorLayout>

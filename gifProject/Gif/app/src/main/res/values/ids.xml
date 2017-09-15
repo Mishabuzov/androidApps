@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="feed_request" type="id"/>
+    <item name="gif_info_request" type="id"/>
+    <item name="auth_request" type="id"/>
+    <item name="reg_token_request" type="id"/>
+    <item name="reg_user_request" type="id"/>
+    <item name="like_request" type="id"/>
+    <item name="favorites_request" type="id" />
+    <item name="add_to_favorites_request" type="id"/>
+    <item name="delete_from_favorites_request" type="id"/>
+</resources>

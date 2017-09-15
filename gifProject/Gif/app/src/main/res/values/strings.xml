@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">"Gif Shower"</string>
+    <string name="loading">Loading…</string>
+
+    <!--Feed screen-->
+    <string name="empty_gifs">Your gif list is empty</string>
+    <string name="error_load_gif">Error loading this gif. Try again later</string>
+    <string name="untitled">Untitled</string>
+    <string name="auth_dialog_title">need authorization</string>
+    <string name="auth_dialog_descr">u have to be authorized for this action. Do u want to do it?</string>
+    <string name="auth_dialog_positive">Yes</string>
+    <string name="auth_dialog_negative">No</string>
+    <string name="auth_dialog_neutral">Please, No!</string>
+    <string name="state_active">1</string>
+    <string name="state_non_active">0</string>
+    <string name="default_tag_name">Kitekat</string>
+
+    <!--Menu-->
+    <string name="menu_header_welcome_msg">hi</string>
+    <string name="menu_header_welcome_msg_end">!</string>
+    <string name="menu_header_welcome_msg_format">%1$s, %2$s%3$s</string>
+    <string name="menu_feed_item">Feed</string>
+    <string name="menu_favorites_item">Favorites</string>
+    <string name="menu_logout_item">Sign out</string>
+    <string name="menu_login_item">Sign in</string>
+    <string name="welcome_msg">Hi, Username!</string>
+    <string name="menu_item_msg">Lenta</string>
+
+    <!--Auth screen-->
+    <string name="login.form.grant_type">password</string>
+    <string name="login.authorization">login or email</string>
+    <string name="password.authorization">password</string>
+    <string name="signin.authorization">Sign in</string>
+    <string name="register.authorization">Sign up</string>
+    <string name="miss.authorization">Let\'s go without it</string>
+
+    <string name="login.error.edit.text">Enter login</string>
+    <string name="password.error.edit.text">Enter password</string>
+
+    <string name="toast_error_format">%1$s: %2$s</string>
+    <string name="toast_error">Error</string>
+    <string name="auth_save_token_bearer">Bearer</string>
+    <string name="auth_save_token_format">%1$s %2$s</string>
+
+    <!--Register screen-->
+    <string name="register.login">login</string>
+    <string name="register.email">email</string>
+    <string name="register.password">password</string>
+    <string name="email.error.edit.text">Enter email</string>
+
+    <!--details screen-->
+    <string name="amount_params">10</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+
+    <string name="content.dialog.button_ok">OK</string>
+    <string name="content.dialog.button_cancel">Отмена</string>
+
+    <string name="attachment.permission.dialog.title.read_file">Чтение файлов</string>
+    <string name="attachment.permission.dialog.content.read_file">Данное разрешение необходимо для прикрепления медифайлов из галереи</string>
+    <string name="attachment.permission.dialog.title.camera">Камера</string>
+    <string name="attachment.permission.dialog.content.camera">Данные разрешения необходимы для прикрепления медифайлов с камеры</string>
+
+    <string name="add.video.dialog.title">Видеозапись</string>
+    <string-array name="add_video_dialog_list_items">
+        <item>Записать видео</item>
+        <item>Выбрать существующее</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/size_50"
+>
+
+    <TextView
+        android:id="@+id/menu_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorMenuItemUnselectedText"
+        android:textSize="@dimen/text.18"
+        tools:text="@string/menu_item_msg"
+        android:layout_centerInParent="true"
+    />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/min_width_size"
+        android:layout_gravity="bottom"
+        android:background="@color/allocatedBackgroundColor"
+        android:layout_alignParentBottom="true"
+    />
+
+
+</RelativeLayout>
