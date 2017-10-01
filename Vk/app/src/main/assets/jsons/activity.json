@@ -1,0 +1,124 @@
+{
+  "items": [
+    {
+      "id": 0,
+      "user_id": 100,
+      "first_name": "Serena",
+      "last_name": "Barton",
+      "photo": "http://placehold.it/32x32",
+      "activity": "sunt ut voluptate nisi nulla"
+    },
+    {
+      "id": 1,
+      "user_id": 101,
+      "first_name": "Betsy",
+      "last_name": "Hill",
+      "photo": "http://placehold.it/32x32",
+      "activity": "et eu cillum voluptate exercitation"
+    },
+    {
+      "id": 2,
+      "user_id": 102,
+      "first_name": "Alisha",
+      "last_name": "Randolph",
+      "photo": "http://placehold.it/32x32",
+      "activity": "veniam magna et esse Lorem"
+    },
+    {
+      "id": 3,
+      "user_id": 103,
+      "first_name": "Beard",
+      "last_name": "Irwin",
+      "photo": "http://placehold.it/32x32",
+      "activity": "выполнил задание не умереть с голоду и первым добрался до ближайшей столовой, став в очередь даже перед самим деканом"
+    },
+    {
+      "id": 4,
+      "user_id": 104,
+      "first_name": "Ayala",
+      "last_name": "Goodman",
+      "photo": "http://placehold.it/32x32",
+      "activity": "labore qui aliquip sint amet"
+    },
+    {
+      "id": 5,
+      "user_id": 105,
+      "first_name": "Hampton",
+      "last_name": "Ingram",
+      "photo": "http://placehold.it/32x32",
+      "activity": "sunt adipisicing quis mollit non"
+    },
+    {
+      "id": 6,
+      "user_id": 106,
+      "first_name": "Snyder",
+      "last_name": "Head",
+      "photo": "http://placehold.it/32x32",
+      "activity": "ex reprehenderit ea non mollit"
+    },
+    {
+      "id": 7,
+      "user_id": 107,
+      "first_name": "Lewis",
+      "last_name": "Leblanc",
+      "photo": "http://placehold.it/32x32",
+      "activity": "magna proident qui incididunt ut"
+    },
+    {
+      "id": 8,
+      "user_id": 108,
+      "first_name": "Maricela",
+      "last_name": "Hodge",
+      "photo": "http://placehold.it/32x32",
+      "activity": "pariatur irure Lorem aliquip non"
+    },
+    {
+      "id": 9,
+      "user_id": 109,
+      "first_name": "Fry",
+      "last_name": "Kramer",
+      "photo": "http://placehold.it/32x32",
+      "activity": "commodo aute anim aute ex"
+    },
+    {
+      "id": 10,
+      "user_id": 110,
+      "first_name": "Carpenter",
+      "last_name": "Calhoun",
+      "photo": "http://placehold.it/32x32",
+      "activity": "officia in reprehenderit sint deserunt"
+    },
+    {
+      "id": 11,
+      "user_id": 111,
+      "first_name": "Waters",
+      "last_name": "Farmer",
+      "photo": "http://placehold.it/32x32",
+      "activity": "consequat laboris sunt fugiat minim"
+    },
+    {
+      "id": 12,
+      "user_id": 112,
+      "first_name": "Hooper",
+      "last_name": "Washington",
+      "photo": "http://placehold.it/32x32",
+      "activity": "enim veniam non magna amet"
+    },
+    {
+      "id": 13,
+      "user_id": 113,
+      "first_name": "Villarreal",
+      "last_name": "Barnes",
+      "photo": "http://placehold.it/32x32",
+      "activity": "dolore officia sint dolore irure"
+    },
+    {
+      "id": 14,
+      "user_id": 114,
+      "first_name": "Wilkerson",
+      "last_name": "Garrison",
+      "photo": "http://placehold.it/32x32",
+      "activity": "reprehenderit amet culpa Lorem sit"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Vk mini Feed</string>
+    <integer name="com_vk_sdk_AppId">6166753</integer>
+
+    <!--menu-->
+    <string name="menu.logout">Сменить пользователя</string>
+
+    <!--error screen-->
+    <string name="error.reload.button">Повторить попытку</string>
+
+    <!--messages-->
+    <string name="unidentified_problems_message">Произошла неизвестная ошибка. Повторите попытку позже.</string>
+    <string name="network.error.message">При загрузке произошла ошибка, проверьте подключение к интернету</string>
+    <string name="login.unsuccess.error">Произошла ошибка авторизации. Необходимо заново подтвердить свои данные</string>
+    <string name="login.permission.denied">Ошибка авторизации.
+        Для работы с приложением необходимо разрешить авторизацию через "Вконтакте"</string>
+    <string name="incorrect.profile.exception">Автор новости не найден в списке.</string>
+    <string name="incorrect.feed.json.exception">Произошла ошибка при парсинге новостей.</string>
+    <string name="incorrect.group.exception">Сообщество, опубликовавшее новость не найдено в списке.</string>
+
+    <!--scopes-->
+    <string name="scope.wall">wall</string>
+    <string name="scope.friends">friends</string>
+    <string name="scope.offline">offline</string>
+
+    <!--formats-->
+    <string name="name.format">"%1$s %2$s"</string>
+    <string name="date.format">dd.MM.yy</string>
+    <string name="time.format">hh:mm</string>
+    <string name="feed.full.date.format">%1$s в %2$s</string>
+
+    <!--feed-->
+    <string name="feed.empty">У вас пока нет новостей</string>
+    <string name="text_example">MyPublicWiFi — ещё один отличный вариант создания хотспота
+        WiFi на компьютере, причем совершенно бесплатный и ничем практически не уступающий по функционалу
+        программе Connectify.</string>
+
+    <!--dialog-->
+    <string name="loading">Loading…</string>
+
+
+</resources>

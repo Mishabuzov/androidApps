@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu_layout"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/unselected_menu_item"
+>
+
+    <com.kpfu.mikhail.vk.widget.textviews.RobotoBoldTextView
+        android:id="@+id/menu_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginLeft="100dp"
+        android:textSize="16sp"
+        tools:text="Пункт меню"
+        android:layout_centerVertical="true"
+    />
+
+
+</RelativeLayout>

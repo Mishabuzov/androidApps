@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/network_error_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:visibility="gone">
+
+    <ImageView
+        android:id="@+id/img_network_error"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/warning"
+        android:layout_marginBottom="15dp" />
+
+    <com.kpfu.mikhail.vk.widget.textviews.RobotoRegularTextView
+        android:id="@+id/tv_network_error_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_network_error"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:text="@string/network.error.message" />
+
+    <Button
+        android:id="@+id/btn_reload"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_network_error_message"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:text="@string/error.reload.button"
+        android:textColor="@color/bad"
+        android:textSize="22sp" />
+
+</RelativeLayout>

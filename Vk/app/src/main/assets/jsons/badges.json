@@ -1,0 +1,313 @@
+﻿{
+  "items": [
+    {
+      "id": 1,
+      "name": "English",
+      "image": "/image",
+      "subject": {
+        "id": 2,
+        "name": "История",
+        "type": "Foreign Languages"
+      },
+      "category": "COMMON",
+      "description": "Bla-bla-bla",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405393979,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": false
+    },
+    {
+      "id": 11,
+      "name": "Базы данных",
+      "image": "/images/badges/sql.png",
+      "subject": {
+        "id": 11,
+        "name": "Базы данных",
+        "type": "Foreign Languages"
+      },
+      "category": "COMMON",
+      "description": "Выдержал самый долгий экзамен",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405394000,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": false
+    },
+    {
+      "id": 12,
+      "name": "БЖД",
+      "image": "/images/badges/warning.png",
+      "subject": {
+        "id": 12,
+        "name": "БЖД",
+        "type": "Foreign Languages"
+      },
+      "category": "COMMON",
+      "description": "Выживет",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405394017,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": false
+    },
+    {
+      "id": 13,
+      "name": "Студвесна",
+      "image": "/images/badges/spring.png",
+      "subject": null,
+      "category": "SPECIAL",
+      "description": "За участие в студвесне!",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405394032,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": true
+    },
+    {
+      "id": 14,
+      "name": "Золотая сессия",
+      "image": "/images/badges/firework.jpg",
+      "subject": null,
+      "category": "SPECIAL",
+      "description": "Сдал все экзамены на отлично!",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405394065,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": true
+    },
+    {
+      "id": 107,
+      "name": "jk",
+      "image": "/jk",
+      "subject": null,
+      "category": "SPECIAL",
+      "description": "jk",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405394083,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": true
+    },
+    {
+      "id": 108,
+      "name": "th",
+      "image": "/th",
+      "subject": null,
+      "category": "SPECIAL",
+      "description": "th",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405394103,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": true
+    },
+    {
+      "id": 500,
+      "name": "Авторизация в приложении",
+      "image": "/images/badges/3.png",
+      "subject": null,
+      "category": "SPECIAL",
+      "description": "Бейдж выдается за первую авторизации в приложении",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405394128,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": true
+    },
+    {
+      "id": 501,
+      "name": "За первое учебное задание",
+      "image": "/images/badges/2.png",
+      "subject": null,
+      "category": "SPECIAL",
+      "description": "Выдается за выполнение первого учебного задания",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405394153,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": true
+    },
+    {
+      "id": 502,
+      "name": "За первое задание из категории \"Актив\"",
+      "image": "/images/badges/1.png",
+      "subject": null,
+      "category": "SPECIAL",
+      "description": "Выдается  за первое выполненное задание актива",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405394176,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": true
+    },
+    {
+      "id": 503,
+      "name": "За 5 выполненных заданий",
+      "image": "/images/badges/4.png",
+      "subject": null,
+      "category": "SPECIAL",
+      "description": "Выдается за выполнение 5 заданий из любой категории",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405394196,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": true
+    },
+    {
+      "id": 504,
+      "name": "За 10 выполненных заданий",
+      "image": "/images/badges/5.png",
+      "subject": null,
+      "category": "SPECIAL",
+      "description": "Выдается за выполнение 10 заданий из любой категории",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405394209,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": true
+    },
+    {
+      "id": 10,
+      "name": "Программирование",
+      "image": "/images/badges/java.png",
+      "subject": {
+        "id": 3,
+        "name": "Программирование",
+        "type": "Foreign Languages"
+      },
+      "category": "COMMON",
+      "description": "Теперь ты программист!",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405394223,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": false
+    },
+    {
+      "id": 506,
+      "name": "Алгебра и геометрия",
+      "image": "/images/badges/warning.png",
+      "subject": {
+        "id": 500,
+        "name": "Алгебра и геометрия",
+        "type": "Foreign Languages"
+      },
+      "category": "COMMON",
+      "description": "",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405394246,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": false
+    },
+    {
+      "id": 508,
+      "name": "Математический анализ",
+      "image": "/images/badges/warning.png",
+      "subject": {
+        "id": 501,
+        "name": "Математический анализ",
+        "type": "Foreign Languages"
+      },
+      "category": "COMMON",
+      "description": "А ты сможешь стать гуру математическа анализа?",
+      "status": {
+        "theory": 0,
+        "practice": 0,
+        "progress": 0,
+        "date": 1447405394264,
+        "type": "PERFORM",
+        "id": null,
+        "accountId": null,
+        "badgeId": null
+      },
+      "is_rare": false
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": 1,
+  "name": "English",
+  "image": "/image",
+  "subject": null,
+  "category": "COMMON",
+  "description": "Bla-bla-bla",
+  "challenges": [
+    {
+      "id": 101,
+      "name": "task #101",
+      "description": "posuere felis sed lacus morbi sem mauris",
+      "status": "NOT_STARTED",
+      "category": "STUDY",
+      "labels": [],
+      "current_volume": 0,
+      "max_volume": 13,
+      "date_from": 1407038400000,
+      "date_to": 1577854800000,
+      "create_time": 1421730000000,
+      "update_time": 1441312784468
+    }
+  ],
+  "status": {
+    "id": 1,
+    "theory": 0,
+    "practice": 0,
+    "progress": 0,
+    "date": 1440113839507,
+    "account_id": 100,
+    "badge_id": 1
+  }
+}
