@@ -3,11 +3,13 @@
     <color name="colorPrimary">#507299</color>
     <color name="colorPrimaryDark">#507299</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="btn_login_enabled">#1084DA</color>
+    <color name="loading_dialog_and_link_color">#1084DA</color>
+    <color name="text_highlight_color">#98309ded</color>
     <color name="color_nav_header">#333233</color>
     <color name="theme_primary">#507299</color>
     <color name="bad">#D0021B</color>
     <color name="black">#0b0b0b</color>
+    <color name="black_text">#151414</color>
     <color name="allocatedBackgroundColor">#D1D1D1</color>
     <color name="like_text_color">#959595</color>
     <color name="selected_menu_item">#959595</color>

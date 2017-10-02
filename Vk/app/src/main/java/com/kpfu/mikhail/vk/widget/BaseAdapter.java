@@ -90,4 +90,10 @@ public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder, T> extends
         void onItemClick(@NonNull T item);
 
     }
+
+  /*  @Override
+    public void onViewAttachedToWindow(VH holder) {
+        super.onViewAttachedToWindow(holder);
+    }*/
+
 }

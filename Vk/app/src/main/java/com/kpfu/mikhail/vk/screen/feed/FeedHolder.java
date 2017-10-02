@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import com.kpfu.mikhail.vk.R;
 import com.kpfu.mikhail.vk.content.NewsLocal;
 import com.kpfu.mikhail.vk.content.attachments.Attachment;
+import com.kpfu.mikhail.vk.screen.feed.FeedAdapter.FeedCallback;
 import com.kpfu.mikhail.vk.utils.GridImageUtils;
 import com.kpfu.mikhail.vk.widget.textviews.RobotoMediumTextView;
 import com.kpfu.mikhail.vk.widget.textviews.RobotoRegularTextView;
@@ -21,15 +22,10 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import butterknife.BindDimen;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-class FeedHolder extends RecyclerView.ViewHolder {
-
-    @BindDimen(R.dimen.mosaic_layout_image_margins) int mMosaicImageMargins;
-
-    @BindDimen(R.dimen.mosaic_layout_parent_padding_size) int mMosaicParentPadding;
+class FeedHolder extends RecyclerView.ViewHolder implements FeedCallback {
 
     @BindView(R.id.avatar) RoundedImageView mAvatar;
 
@@ -44,8 +40,6 @@ class FeedHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.grid_for_images) GridLayout mGridForImages;
 
     @BindView(R.id.btn_like) Button mBtnLike;
-
-//    @BindView(R.id.btn_watch) Button mBtnWatch;
 
     @BindView(R.id.functional_layout) FrameLayout mFunctionalLayout;
 
@@ -80,11 +74,12 @@ class FeedHolder extends RecyclerView.ViewHolder {
             attachments = new ArrayList<>();
         }*/
         checkChildOfLayout(mGridForImages);
-        if (attachments != null) {
+        if (attachments != null && !attachments.isEmpty()) {
             GridImageUtils gridImageUtils;
 //        if(attachments != null && !attachments.isEmpty()){
+            mGridForImages.setVisibility(View.VISIBLE);
             gridImageUtils = new GridImageUtils(mContext, mGridForImages, attachments);
-            gridImageUtils.fillGridLayoutByMosaicAlgorithm(mMosaicParentPadding, mMosaicImageMargins);
+            gridImageUtils.fillGridLayoutByMosaicAlgorithm();
         }
        /* } else {
             mGridForImages.setVisibility(View.GONE);
@@ -96,6 +91,12 @@ class FeedHolder extends RecyclerView.ViewHolder {
             parentLayout.removeAllViews();
             parentLayout.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public void enableTextViewHighLighting() {
+        mTvDescription.setEnabled(false);
+        mTvDescription.setEnabled(true);
     }
 
 }

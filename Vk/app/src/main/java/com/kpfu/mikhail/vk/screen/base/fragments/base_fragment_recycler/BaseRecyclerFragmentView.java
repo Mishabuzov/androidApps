@@ -1,9 +1,6 @@
 package com.kpfu.mikhail.vk.screen.base.fragments.base_fragment_recycler;
 
-import com.kpfu.mikhail.vk.content.NewsItem;
 import com.kpfu.mikhail.vk.screen.base.fragments.base_fragment.BaseFragmentView;
-
-import java.util.List;
 
 public interface BaseRecyclerFragmentView extends BaseFragmentView {
 
@@ -16,5 +13,7 @@ public interface BaseRecyclerFragmentView extends BaseFragmentView {
     void hideScreenAndShowLoading();
 
     void hideScreen();
+
+    void showEmptyView();
 
 }

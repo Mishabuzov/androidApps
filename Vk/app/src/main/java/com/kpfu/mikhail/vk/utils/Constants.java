@@ -12,7 +12,7 @@ public class Constants {
 
     public static final String AUTHORIZED_USER = "authorized_user";
 
-    public static final int DEFAULT_NEWS_COUNT = 15;
+    public static final int DEFAULT_NEWS_COUNT = 20;
 
     public static final String POST = "post";
 

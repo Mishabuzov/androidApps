@@ -9,6 +9,7 @@ import com.kpfu.mikhail.vk.content.News;
 import com.kpfu.mikhail.vk.content.NewsItem;
 import com.kpfu.mikhail.vk.content.NewsLocal;
 import com.kpfu.mikhail.vk.content.Profile;
+import com.kpfu.mikhail.vk.content.attachments.Attachment;
 import com.kpfu.mikhail.vk.exceptions.IncorrectParsingDataException;
 
 import java.text.SimpleDateFormat;
@@ -17,24 +18,45 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import static com.kpfu.mikhail.vk.content.attachments.AttachmentType.PHOTO;
+import static com.kpfu.mikhail.vk.content.attachments.AttachmentType.VIDEO;
+
 public class ConvertUtils {
 
     public static List<NewsLocal> convertResponseIntoAdapterModel(@NonNull News newsResponse,
                                                                   @NonNull Context context)
             throws IncorrectParsingDataException {
         List<NewsLocal> news = new ArrayList<>();
+        List<Attachment> badAttachments = new ArrayList<>();
         for (NewsItem newsItem : newsResponse.getItems()) {
-            NewsLocal newsLocal = new NewsLocal();
-            setAuthorInfoById(newsItem.getSourceId(), newsResponse, newsLocal, context);
-            newsLocal.setAttachments(newsItem.getAttachments());
-            newsLocal.setDate(convertMillisToHumanReadableFormat(newsItem.getDate(), context));
-            newsLocal.setLiked(newsItem.getLikes().getLikeStatus().isLiked());
-            newsLocal.setLikesCount(newsItem.getLikes().getCount());
+            filterAttachments(newsItem.getAttachments(), badAttachments);
+            if (!newsItem.getText().isEmpty() || newsItem.getAttachments() != null
+                    && !newsItem.getAttachments().isEmpty()) {
+                NewsLocal newsLocal = new NewsLocal();
+                setAuthorInfoById(newsItem.getSourceId(), newsResponse, newsLocal, context);
+                newsLocal.setAttachments(newsItem.getAttachments());
+                newsLocal.setDate(convertMillisToHumanReadableFormat(newsItem.getDate(), context));
+                newsLocal.setLiked(newsItem.getLikes().getLikeStatus().isLiked());
+                newsLocal.setLikesCount(newsItem.getLikes().getCount());
 //            newsLocal.setViewsCount(newsItem.getViews().getCount());
-            newsLocal.setText(newsItem.getText());
-            news.add(newsLocal);
+                newsLocal.setText(newsItem.getText());
+                news.add(newsLocal);
+            }
         }
         return news;
+    }
+
+    private static void filterAttachments(List<Attachment> attachments,
+                                          List<Attachment> badAttachments) {
+        if (attachments != null) {
+            for (Attachment attachment : attachments) {
+                if (attachment.getType() != PHOTO && attachment.getType() != VIDEO) {
+                    badAttachments.add(attachment);
+                }
+            }
+            attachments.removeAll(badAttachments);
+            badAttachments.clear();
+        }
     }
 
     private static void setAuthorInfoById(long authorId,

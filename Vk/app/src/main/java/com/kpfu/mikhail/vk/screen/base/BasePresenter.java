@@ -3,7 +3,6 @@ package com.kpfu.mikhail.vk.screen.base;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
-import com.kpfu.mikhail.vk.screen.base.fragments.error_fragment.ErrorView;
 import com.kpfu.mikhail.vk.widget.progressbar.LoadingView;
 import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.VKRequest;
@@ -27,15 +26,15 @@ public abstract class BasePresenter<View extends LoadingView, P extends Parcelab
         }
     }
 
-    protected abstract void connectData();
+    public abstract void connectData();
 
     protected abstract void showData(List<P> data);
 
     protected void processRequest(VKRequest request) {
+        mView.showLoading();
         request.executeWithListener(new VKRequest.VKRequestListener() {
             @Override
             public void onComplete(VKResponse response) {
-                mView.hideLoading();
                 onRequestSuccess(response);
             }
 
@@ -46,7 +45,7 @@ public abstract class BasePresenter<View extends LoadingView, P extends Parcelab
 
             @Override
             public void onProgress(VKRequest.VKProgressType progressType, long bytesLoaded, long bytesTotal) {
-                mView.showLoading();
+
             }
         });
     }

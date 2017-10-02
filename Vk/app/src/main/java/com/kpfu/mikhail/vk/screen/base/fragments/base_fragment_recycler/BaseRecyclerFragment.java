@@ -3,11 +3,11 @@ package com.kpfu.mikhail.vk.screen.base.fragments.base_fragment_recycler;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,8 +16,6 @@ import com.kpfu.mikhail.vk.screen.base.activities.base_fragment_activity.BaseFra
 import com.kpfu.mikhail.vk.screen.base.fragments.base_fragment.BaseFragment;
 import com.kpfu.mikhail.vk.widget.BaseAdapter;
 import com.kpfu.mikhail.vk.widget.EmptyRecyclerView;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,9 +29,11 @@ public abstract class BaseRecyclerFragment<T extends BaseAdapter>
 
     @BindView(R.id.empty) TextView mEmpty;
 
-    private LinearLayoutManager mLayoutManager;
+    @BindView(R.id.empty_layout) RelativeLayout mEmptyLayout;
 
-    private T mAdapter;
+    @BindView(R.id.btn_reload) Button mReloadButton;
+
+    private LinearLayoutManager mLayoutManager;
 
     @Nullable
     @Override
@@ -69,9 +69,9 @@ public abstract class BaseRecyclerFragment<T extends BaseAdapter>
     protected abstract T initAdapter();
 
     private void setupAdapter() {
-        mAdapter = initAdapter();
-        mAdapter.attachToRecyclerView(mRecyclerView);
-        mRecyclerView.setAdapter(mAdapter);
+        T adapter = initAdapter();
+        adapter.attachToRecyclerView(mRecyclerView);
+        mRecyclerView.setAdapter(adapter);
     }
 
     private void setupRecyclerView() {
@@ -79,6 +79,8 @@ public abstract class BaseRecyclerFragment<T extends BaseAdapter>
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setEmptyView(mEmpty);
         mRecyclerView.setBackgroundResource(R.color.vk_white);
+        mRecyclerView.setDrawingCacheEnabled(true);
+        mRecyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
     }
 
     public EmptyRecyclerView getRecyclerView() {
@@ -105,6 +107,12 @@ public abstract class BaseRecyclerFragment<T extends BaseAdapter>
     @Override
     public void hideScreen() {
         mMainLayout.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void showEmptyView() {
+        mReloadButton.setOnClickListener((v) -> getPresenter().connectData());
+        mEmptyLayout.setVisibility(View.VISIBLE);
     }
 
 }

@@ -17,14 +17,33 @@
         android:overScrollMode="never"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <com.kpfu.mikhail.vk.widget.textviews.RobotoRegularTextView
+    <RelativeLayout
+        android:id="@+id/empty_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+
+        <com.kpfu.mikhail.vk.widget.textviews.RobotoRegularTextView
         android:id="@+id/empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:gravity="center"
-        android:textSize="18sp"
+            android:text="@string/feed.empty"
+            android:layout_centerHorizontal="true"
         android:textColor="@color/black"
-        android:text="@string/feed.empty" />
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_reload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/empty"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/text_highlight_color"
+            android:text="@string/refresh.feed.text" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

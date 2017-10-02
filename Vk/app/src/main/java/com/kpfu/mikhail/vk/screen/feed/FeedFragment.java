@@ -15,7 +15,7 @@ public class FeedFragment extends BaseRecyclerFragment implements FeedView {
 
     @Override
     protected void doActions() {
-        ((FeedPresenter) getPresenter()).connectData();
+        getPresenter().connectData();
     }
 
     @Override

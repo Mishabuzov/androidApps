@@ -46,7 +46,7 @@ public class LoadingDialog extends DialogFragment {
         View view = View.inflate(getActivity(), R.layout.dialog_loading, null);
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
         progressBar.getIndeterminateDrawable().setColorFilter(
-                ContextCompat.getColor(getActivity(), R.color.btn_login_enabled),
+                ContextCompat.getColor(getActivity(), R.color.loading_dialog_and_link_color),
                 android.graphics.PorterDuff.Mode.MULTIPLY);
         return new AlertDialog.Builder(getActivity())
                 .setView(view)

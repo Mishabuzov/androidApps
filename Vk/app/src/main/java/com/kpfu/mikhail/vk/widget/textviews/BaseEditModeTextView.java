@@ -7,6 +7,9 @@ import android.util.AttributeSet;
 import com.kpfu.mikhail.vk.utils.FontUtils;
 
 public abstract class BaseEditModeTextView extends AppCompatTextView {
+
+    private boolean mEnabled;  //prevent text selection android bug
+
     public BaseEditModeTextView(Context context) {
         super(context);
     }
@@ -24,4 +27,28 @@ public abstract class BaseEditModeTextView extends AppCompatTextView {
             super.setTypeface(FontUtils.getTypeface(getContext(), typefaceType));
         }
     }
+
+    @Override
+    public void scrollTo(int x, int y) {
+        //do nothing
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        try {
+            if (!mEnabled) return;
+            super.setEnabled(false);
+            super.setEnabled(mEnabled);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void setEnabled(boolean enabled) {
+        this.mEnabled = enabled;
+        super.setEnabled(enabled);
+    }
+
 }

@@ -67,24 +67,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:autoLink="web"
+                android:clickable="true"
+                android:ellipsize="end"
+                android:focusable="true"
+
+                android:focusableInTouchMode="true"
+                android:maxLines="7"
+                android:textColorLink="@color/loading_dialog_and_link_color"
+
+                android:textIsSelectable="true"
                 android:textSize="16sp"
                 tools:text="@string/text_example" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <GridLayout
-                    android:id="@+id/grid_for_images"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
-                    android:visibility="gone" />
-
-            </RelativeLayout>
+            <!-- android:state_activated="true"
+             android:duplicateParentState="true"-->
 
         </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <GridLayout
+                android:id="@+id/grid_for_images"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:visibility="gone" />
+            <!-- android:layout_marginTop="10dp"
+             android:layout_marginBottom="10dp"-->
+
+        </RelativeLayout>
+
 
         <View
             android:layout_width="match_parent"

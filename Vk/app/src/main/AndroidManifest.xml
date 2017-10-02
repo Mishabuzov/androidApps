@@ -28,7 +28,7 @@
 
         <activity
             android:name=".screen.feed.FeedActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/AppTheme" />
 
         <activity
             android:name=".screen.login.LoginActivity"

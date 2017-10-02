@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.kpfu.mikhail.vk.R;
@@ -35,14 +34,19 @@ class FeedPresenter extends BasePresenter<FeedView, NewsLocal> {
     }
 
     @Override
-    protected void connectData() {
+    public void connectData() {
         processRequest(VkProvider.provideVkRepository()
                 .getNewsFeed(PreferenceUtils.getStartFromValue()));
     }
 
     @Override
-    protected void showData(List<NewsLocal> data) {
-        mView.showFeed(data);
+    protected void showData(@NonNull List<NewsLocal> data) {
+        if (!data.isEmpty()) {
+            mView.showFeed(data);
+        } else {
+            mView.showEmptyView();
+        }
+        mView.hideLoading();
     }
 
     @Override
@@ -75,6 +79,7 @@ class FeedPresenter extends BasePresenter<FeedView, NewsLocal> {
 
     @Override
     protected void onRequestError(VKError error) {
+        mView.hideLoading();
         mView.handleError(error.httpError, this::connectData);
     }
 
