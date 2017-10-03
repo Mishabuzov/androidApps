@@ -13,7 +13,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -41,9 +40,11 @@ public abstract class BaseFragmentActivity extends BaseActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mFragmentPresenter = new BaseActivityWithFragmentPresenter(this);
-        Fragment fragment = getFragment();
-        fragment.setArguments(getFragmentArguments());
-        setFragment(fragment);
+        if (savedInstanceState == null) {
+            Fragment fragment = getFragment();
+            fragment.setArguments(getFragmentArguments());
+            setNewInstanceOfFragment(fragment);
+        }
         setSupportActionBar(getToolbar());
         initNetworkErrorScreen();
     }
@@ -59,7 +60,7 @@ public abstract class BaseFragmentActivity extends BaseActivity
     protected abstract FrameLayout getFragmentLayout();
 
     @Override
-    public void setFragment(@NonNull Fragment fragment) {
+    public void setNewInstanceOfFragment(@NonNull Fragment fragment) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         if (fm.findFragmentById(R.id.fragment_layout) != null) {

@@ -10,7 +10,7 @@ import com.kpfu.mikhail.vk.utils.Function;
 
 public interface BaseActivityWithFragmentView extends BaseView {
 
-    void setFragment(@NonNull Fragment fragment);
+    void setNewInstanceOfFragment(@NonNull Fragment fragment);
 
     void setToolbarBehavior(LinearLayoutManager llm, int size);
 

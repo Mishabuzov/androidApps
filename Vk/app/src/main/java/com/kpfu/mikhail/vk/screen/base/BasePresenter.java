@@ -3,14 +3,13 @@ package com.kpfu.mikhail.vk.screen.base;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
-import com.kpfu.mikhail.vk.widget.progressbar.LoadingView;
 import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.VKRequest;
 import com.vk.sdk.api.VKResponse;
 
 import java.util.List;
 
-public abstract class BasePresenter<View extends LoadingView, P extends Parcelable> {
+public abstract class BasePresenter<View extends BaseView, P extends Parcelable> {
 
     private final View mView;
 

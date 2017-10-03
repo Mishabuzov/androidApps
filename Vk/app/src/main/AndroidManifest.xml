@@ -29,6 +29,7 @@
         <activity
             android:name=".screen.feed.FeedActivity"
             android:theme="@style/AppTheme" />
+        <!--android:configChanges="orientation|screenSize|keyboardHidden"-->
 
         <activity
             android:name=".screen.login.LoginActivity"

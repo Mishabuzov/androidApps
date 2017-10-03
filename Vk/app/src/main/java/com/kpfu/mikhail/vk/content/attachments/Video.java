@@ -1,10 +1,13 @@
 package com.kpfu.mikhail.vk.content.attachments;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Video {
+public class Video implements Parcelable {
 
     @JsonProperty("photo_320")
     private String thumbnail;
@@ -36,4 +39,31 @@ public class Video {
         this.accessKey = accessKey;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.thumbnail);
+        dest.writeString(this.accessKey);
+    }
+
+    protected Video(Parcel in) {
+        this.thumbnail = in.readString();
+        this.accessKey = in.readString();
+    }
+
+    public static final Creator<Video> CREATOR = new Creator<Video>() {
+        @Override
+        public Video createFromParcel(Parcel source) {
+            return new Video(source);
+        }
+
+        @Override
+        public Video[] newArray(int size) {
+            return new Video[size];
+        }
+    };
 }

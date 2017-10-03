@@ -18,6 +18,7 @@ import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.VKResponse;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 class FeedPresenter extends BasePresenter<FeedView, NewsLocal> {
@@ -42,6 +43,7 @@ class FeedPresenter extends BasePresenter<FeedView, NewsLocal> {
     @Override
     protected void showData(@NonNull List<NewsLocal> data) {
         if (!data.isEmpty()) {
+            mView.saveData((ArrayList<NewsLocal>) data);
             mView.showFeed(data);
         } else {
             mView.showEmptyView();

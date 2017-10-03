@@ -1,6 +1,7 @@
 package com.kpfu.mikhail.vk.screen.base.fragments.base_fragment_recycler;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.kpfu.mikhail.vk.R;
+import com.kpfu.mikhail.vk.screen.base.BasePresenter;
 import com.kpfu.mikhail.vk.screen.base.activities.base_fragment_activity.BaseFragmentActivity;
 import com.kpfu.mikhail.vk.screen.base.fragments.base_fragment.BaseFragment;
 import com.kpfu.mikhail.vk.widget.BaseAdapter;
@@ -20,8 +22,13 @@ import com.kpfu.mikhail.vk.widget.EmptyRecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public abstract class BaseRecyclerFragment<T extends BaseAdapter>
-        extends BaseFragment implements BaseRecyclerFragmentView {
+public abstract class BaseRecyclerFragment
+        <Adapter extends BaseAdapter,
+                Data extends Parcelable,
+                V extends BaseRecyclerFragmentView<Data>,
+                P extends BasePresenter<V, Data>>
+
+        extends BaseFragment<Data, V, P> implements BaseRecyclerFragmentView<Data> {
 
     @BindView(R.id.main_layout) RelativeLayout mMainLayout;
 
@@ -42,7 +49,8 @@ public abstract class BaseRecyclerFragment<T extends BaseAdapter>
         ButterKnife.bind(this, view);
         getArgs();
         initFragmentElements();
-        doActions();
+        getData(savedInstanceState);
+//        doActions();
         return view;
     }
 
@@ -59,17 +67,17 @@ public abstract class BaseRecyclerFragment<T extends BaseAdapter>
 
     protected abstract void getArgs();
 
-    protected abstract void doActions();
+//    protected abstract void doActions();
 
     private void initFragmentElements() {
         setupAdapter();
         setupRecyclerView();
     }
 
-    protected abstract T initAdapter();
+    protected abstract Adapter initAdapter();
 
     private void setupAdapter() {
-        T adapter = initAdapter();
+        Adapter adapter = initAdapter();
         adapter.attachToRecyclerView(mRecyclerView);
         mRecyclerView.setAdapter(adapter);
     }

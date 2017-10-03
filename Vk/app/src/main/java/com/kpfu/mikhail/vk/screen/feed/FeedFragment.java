@@ -5,7 +5,7 @@ import com.kpfu.mikhail.vk.screen.base.fragments.base_fragment_recycler.BaseRecy
 
 import java.util.List;
 
-public class FeedFragment extends BaseRecyclerFragment implements FeedView {
+public class FeedFragment extends BaseRecyclerFragment<FeedAdapter, NewsLocal, FeedView, FeedPresenter> implements FeedView {
 
     private FeedAdapter mAdapter;
 
@@ -13,10 +13,10 @@ public class FeedFragment extends BaseRecyclerFragment implements FeedView {
     protected void getArgs() {
     }
 
-    @Override
+   /* @Override
     protected void doActions() {
         getPresenter().connectData();
-    }
+    }*/
 
     @Override
     protected FeedAdapter initAdapter() {
