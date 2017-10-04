@@ -18,7 +18,7 @@ public abstract class BasePresenter<View extends BaseView, P extends Parcelable>
     }
 
     public void processData(List<P> data) {
-        if (data == null) {
+        if (data == null || data.isEmpty()) {
             connectData();
         } else {
             showData(data);

@@ -2,6 +2,7 @@ package com.kpfu.mikhail.vk.screen.base.fragments.base_fragment_recycler;
 
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
@@ -18,6 +19,8 @@ import com.kpfu.mikhail.vk.screen.base.activities.base_fragment_activity.BaseFra
 import com.kpfu.mikhail.vk.screen.base.fragments.base_fragment.BaseFragment;
 import com.kpfu.mikhail.vk.widget.BaseAdapter;
 import com.kpfu.mikhail.vk.widget.EmptyRecyclerView;
+import com.kpfu.mikhail.vk.widget.EndlessRecyclerScrollListener;
+import com.kpfu.mikhail.vk.widget.EndlessRecyclerScrollListener.PaginationLoadable;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,7 +31,8 @@ public abstract class BaseRecyclerFragment
                 V extends BaseRecyclerFragmentView<Data>,
                 P extends BasePresenter<V, Data>>
 
-        extends BaseFragment<Data, V, P> implements BaseRecyclerFragmentView<Data> {
+        extends BaseFragment<Data, V, P> implements BaseRecyclerFragmentView<Data>,
+        PaginationLoadable {
 
     @BindView(R.id.main_layout) RelativeLayout mMainLayout;
 
@@ -48,9 +52,9 @@ public abstract class BaseRecyclerFragment
         View view = inflater.inflate(R.layout.fragment_base_recycler, container, false);
         ButterKnife.bind(this, view);
         getArgs();
-        initFragmentElements();
-        getData(savedInstanceState);
-//        doActions();
+        setupRecyclerView();
+        getDataAndShow();
+        doActions();
         return view;
     }
 
@@ -67,22 +71,15 @@ public abstract class BaseRecyclerFragment
 
     protected abstract void getArgs();
 
-//    protected abstract void doActions();
-
-    private void initFragmentElements() {
-        setupAdapter();
-        setupRecyclerView();
+    protected void doActions() {
     }
+
+    ;
 
     protected abstract Adapter initAdapter();
 
-    private void setupAdapter() {
-        Adapter adapter = initAdapter();
-        adapter.attachToRecyclerView(mRecyclerView);
-        mRecyclerView.setAdapter(adapter);
-    }
-
     private void setupRecyclerView() {
+        initAdapter().attachToRecyclerView(mRecyclerView);
         mLayoutManager = new LinearLayoutManager(mRecyclerView.getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setEmptyView(mEmpty);
@@ -91,9 +88,9 @@ public abstract class BaseRecyclerFragment
         mRecyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
     }
 
-    public EmptyRecyclerView getRecyclerView() {
-        return mRecyclerView;
-    }
+//    public EmptyRecyclerView getRecyclerView() {
+//        return mRecyclerView;
+//    }
 
     @Override
     public void showScreenAndHideLoading() {
@@ -121,6 +118,23 @@ public abstract class BaseRecyclerFragment
     public void showEmptyView() {
         mReloadButton.setOnClickListener((v) -> getPresenter().connectData());
         mEmptyLayout.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideEmptyView() {
+        if (mEmptyLayout.getVisibility() == View.VISIBLE) {
+            mEmptyLayout.setVisibility(View.GONE);
+        }
+    }
+
+    protected void enablePagination(@NonNull PaginationLoadable loadable) {
+        mRecyclerView.addOnScrollListener(new EndlessRecyclerScrollListener(loadable,
+                (LinearLayoutManager) mRecyclerView.getLayoutManager()));
+    }
+
+    @Override
+    public void onLoadMore() {
+        getPresenter().connectData();
     }
 
 }

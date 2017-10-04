@@ -10,6 +10,6 @@ public interface VkRepository {
     VKRequest getCurrentUserInfo();
 
     @NonNull
-    VKRequest getNewsFeed(String startFrom);
+    VKRequest getNewsFeed();
 
 }

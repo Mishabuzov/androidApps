@@ -18,4 +18,6 @@ public interface BaseRecyclerFragmentView<Data extends Parcelable> extends BaseF
 
     void showEmptyView();
 
+    void hideEmptyView();
+
 }

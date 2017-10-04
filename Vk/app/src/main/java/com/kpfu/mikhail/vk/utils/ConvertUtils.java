@@ -23,10 +23,10 @@ import static com.kpfu.mikhail.vk.content.attachments.AttachmentType.VIDEO;
 
 public class ConvertUtils {
 
-    public static List<NewsLocal> convertResponseIntoAdapterModel(@NonNull News newsResponse,
-                                                                  @NonNull Context context)
+    public static ArrayList<NewsLocal> convertResponseIntoAdapterModel(@NonNull News newsResponse,
+                                                                       @NonNull Context context)
             throws IncorrectParsingDataException {
-        List<NewsLocal> news = new ArrayList<>();
+        ArrayList<NewsLocal> news = new ArrayList<>();
         List<Attachment> badAttachments = new ArrayList<>();
         for (NewsItem newsItem : newsResponse.getItems()) {
             filterAttachments(newsItem.getAttachments(), badAttachments);

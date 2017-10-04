@@ -13,12 +13,10 @@ import com.kpfu.mikhail.vk.widget.BaseAdapter;
 
 import java.util.List;
 
-class MenuAdapter extends BaseAdapter<RecyclerView.ViewHolder, MenuItem>
+class MenuAdapter extends BaseAdapter<MenuItem>
 implements MenuItemHolder.MenuItemCallback {
 
-    private static final int TYPE_ITEM_VIEW = 0;
-
-    private static final int TYPE_ITEM_VIEW_HEADER = 1;
+    private static final int TYPE_ITEM_VIEW_HEADER = 3;
 
 //    private TextView mSelectedMenuTv;
 
@@ -46,7 +44,7 @@ implements MenuItemHolder.MenuItemCallback {
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    protected RecyclerView.ViewHolder onCreateDefaultViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_ITEM_VIEW_HEADER) {
             return new MenuHeaderHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_header, parent, false));
         } else {

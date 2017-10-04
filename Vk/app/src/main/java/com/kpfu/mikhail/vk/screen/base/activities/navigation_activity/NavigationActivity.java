@@ -70,12 +70,7 @@ public abstract class NavigationActivity extends BaseFragmentActivity
     private void setupMenuAdapter() {
         mMenuAdapter = new MenuAdapter(MenuItem.getmMenuItems(), this);
         mMenuAdapter.attachToRecyclerView(mMenuRecycler);
-        setupMenuRecycler();
-    }
-
-    private void setupMenuRecycler() {
         mMenuRecycler.setLayoutManager(new LinearLayoutManager(mMenuRecycler.getContext()));
-        mMenuRecycler.setAdapter(mMenuAdapter);
     }
 
     protected void doCreatingActions() {

@@ -13,6 +13,7 @@ import com.kpfu.mikhail.vk.exceptions.IncorrectParsingDataException;
 import com.kpfu.mikhail.vk.repository.VkProvider;
 import com.kpfu.mikhail.vk.screen.base.BasePresenter;
 import com.kpfu.mikhail.vk.utils.ConvertUtils;
+import com.kpfu.mikhail.vk.utils.Function;
 import com.kpfu.mikhail.vk.utils.PreferenceUtils;
 import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.VKResponse;
@@ -36,15 +37,14 @@ class FeedPresenter extends BasePresenter<FeedView, NewsLocal> {
 
     @Override
     public void connectData() {
-        processRequest(VkProvider.provideVkRepository()
-                .getNewsFeed(PreferenceUtils.getStartFromValue()));
+        processRequest(VkProvider.provideVkRepository().getNewsFeed());
     }
 
     @Override
     protected void showData(@NonNull List<NewsLocal> data) {
         if (!data.isEmpty()) {
-            mView.saveData((ArrayList<NewsLocal>) data);
             mView.showFeed(data);
+            mView.hideEmptyView();
         } else {
             mView.showEmptyView();
         }
@@ -56,13 +56,15 @@ class FeedPresenter extends BasePresenter<FeedView, NewsLocal> {
         try {
             NewsResponse newsResponse = parseNews(response.responseString);
             PreferenceUtils.saveNextFromValue(newsResponse.getResponse().getNextFrom());
-            showData(ConvertUtils.convertResponseIntoAdapterModel(newsResponse.getResponse(), mContext));
+            ArrayList<NewsLocal> news = ConvertUtils.convertResponseIntoAdapterModel(newsResponse.getResponse(), mContext);
+            showData(news);
+            mView.saveData(news);
         } catch (IncorrectParsingDataException e) {
             mView.handleError(e, this::connectData);
         }
     }
 
-    private NewsResponse parseNews(String feed) throws IncorrectParsingDataException {
+    private NewsResponse parseNews(@NonNull String feed) throws IncorrectParsingDataException {
         final ObjectMapper mapper = new ObjectMapper();
         final ObjectReader objectReader = mapper.readerFor(NewsResponse.class);
         NewsResponse newsResponse;
@@ -80,9 +82,18 @@ class FeedPresenter extends BasePresenter<FeedView, NewsLocal> {
     }
 
     @Override
-    protected void onRequestError(VKError error) {
+    protected void onRequestError(@NonNull VKError error) {
         mView.hideLoading();
         mView.handleError(error.httpError, this::connectData);
+    }
+
+    void handleNetworkError(@NonNull Function reloadFunction,
+                            boolean isDataEmpty) {
+        if (isDataEmpty) {
+            mView.handleNetworkErrorByErrorScreen(reloadFunction);
+        } else {
+            mView.showNetworkErrorMessage();
+        }
     }
 
 }

@@ -14,5 +14,6 @@
     <color name="like_text_color">#959595</color>
     <color name="selected_menu_item">#959595</color>
     <color name="unselected_menu_item">#D1D1D1</color>
-
+    <color name="white_transient">#cfffffff</color>
+    <color name="window_color">#be021021</color>
 </resources>

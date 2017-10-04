@@ -2,6 +2,7 @@ package com.kpfu.mikhail.vk.screen.feed;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -11,7 +12,7 @@ import com.kpfu.mikhail.vk.widget.BaseAdapter;
 
 import java.util.ArrayList;
 
-public class FeedAdapter extends BaseAdapter<FeedHolder, NewsLocal> {
+public class FeedAdapter extends BaseAdapter<NewsLocal> {
 
     private final Context mContext;
 
@@ -23,7 +24,7 @@ public class FeedAdapter extends BaseAdapter<FeedHolder, NewsLocal> {
     }
 
     @Override
-    public FeedHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    protected ViewHolder onCreateDefaultViewHolder(ViewGroup parent, int viewType) {
         FeedHolder feedHolder = new FeedHolder(
                 LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.feed_list_item, parent, false), mContext);
@@ -32,14 +33,17 @@ public class FeedAdapter extends BaseAdapter<FeedHolder, NewsLocal> {
     }
 
     @Override
-    public void onBindViewHolder(FeedHolder holder, int position) {
-        super.onBindViewHolder(holder, position);
-        NewsLocal newsLocal = getItem(position);
-        holder.bind(newsLocal);
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        if (holder.getItemViewType() == TYPE_ITEM_VIEW) {
+            super.onBindViewHolder(holder, position);
+            FeedHolder feedHolder = (FeedHolder) holder;
+            NewsLocal newsLocal = getItem(position);
+            feedHolder.bind(newsLocal);
+        }
     }
 
     @Override
-    public void onViewAttachedToWindow(FeedHolder holder) {
+    public void onViewAttachedToWindow(ViewHolder holder) {
         super.onViewAttachedToWindow(holder);
 
         // Bug workaround for losing text selection ability, see:

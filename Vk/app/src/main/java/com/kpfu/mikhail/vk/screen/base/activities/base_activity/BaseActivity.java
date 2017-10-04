@@ -28,7 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseActi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mLoadingView = LoadingDialog.view(getSupportFragmentManager());
-        setupWindow(R.color.theme_primary);
+        setupWindow(R.color.window_color);
     }
 
     @Override

@@ -32,6 +32,8 @@ public abstract class BaseFragment<Data extends Parcelable, V extends BaseFragme
     public void onCreate(@Nullable Bundle savedInstanceState) {
         if (savedInstanceState != null) {
             mData = savedInstanceState.getParcelableArrayList(DATA);
+        } else {
+            mData = new ArrayList<>();
         }
         super.onCreate(savedInstanceState);
         mLoadingView = LoadingDialog.view(getActivity()
@@ -70,7 +72,7 @@ public abstract class BaseFragment<Data extends Parcelable, V extends BaseFragme
 
 //    private Bundle mSavedInstanceState;
 
-    public void getData(@Nullable Bundle savedInstanceState) {
+    protected void getDataAndShow() {
       /*  if (savedInstanceState != null) {
 //            mSavedInstanceState = savedInstanceState;
             mData = savedInstanceState.getParcelableArrayList(DATA); //Восстанавливаем данные если они есть
@@ -79,7 +81,7 @@ public abstract class BaseFragment<Data extends Parcelable, V extends BaseFragme
     }
 
     public void saveData(ArrayList<Data> data) {
-        mData = data;
+        mData.addAll(data);
         /*if (data != null && !data.isEmpty() && mSavedInstanceState != null) {
             mSavedInstanceState.putParcelableArrayList(DATA, (ArrayList<? extends Parcelable>) data);
         }*/
@@ -141,7 +143,7 @@ public abstract class BaseFragment<Data extends Parcelable, V extends BaseFragme
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (mData != null) {
+        if (mData != null && !mData.isEmpty()) {
             Log.d("my", "Данные сохранены");
             outState.putParcelableArrayList(DATA, mData);
         }

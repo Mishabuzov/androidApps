@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
 import com.kpfu.mikhail.vk.R;
 import com.kpfu.mikhail.vk.content.NetworkErrorType;
 import com.kpfu.mikhail.vk.screen.base.activities.base_fragment_activity.BaseFragmentActivity;
-import com.kpfu.mikhail.vk.screen.base.activities.single_fragment_activity.SingleActivityWithFragmentView;
 import com.kpfu.mikhail.vk.screen.login.LoginActivity;
 import com.kpfu.mikhail.vk.utils.AndroidUtils;
 import com.kpfu.mikhail.vk.utils.Function;
@@ -63,12 +62,16 @@ public abstract class ErrorFragment extends Fragment implements ErrorView {
                 .setErrorScreenWithReloadButton(reloadFunction, errorText);
     }
 
+    protected void handleNetworkError(Function reloadFunction) {
+        setErrorScreenWithRestartButton(reloadFunction, R.string.network_error_message);
+    }
+
     @Override
     public void handleError(Throwable e, Function reloadFunction) {
         if (e instanceof HttpException) {
             handleHttpException((HttpException) e, reloadFunction);
         } else if (mNetworkExceptions.contains(e.getClass())) {
-            setErrorScreenWithRestartButton(reloadFunction, R.string.network_error_message);
+            handleNetworkError(reloadFunction);
         } else {
             processError(UNEXPECTED_ERROR, e, reloadFunction);
         }
