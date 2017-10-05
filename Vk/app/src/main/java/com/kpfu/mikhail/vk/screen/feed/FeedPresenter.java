@@ -28,15 +28,21 @@ class FeedPresenter extends BasePresenter<FeedView, NewsLocal> {
 
     private final FeedView mView;
 
+    private boolean mIsDataEmpty;
+
     FeedPresenter(@NonNull FeedView view,
                   @NonNull Context context) {
         super(view);
         mView = view;
         mContext = context;
+        mIsDataEmpty = true;
     }
 
     @Override
     public void connectData() {
+        if (mIsDataEmpty) {
+            mView.showLoading();
+        }
         processRequest(VkProvider.provideVkRepository().getNewsFeed());
     }
 
@@ -59,6 +65,7 @@ class FeedPresenter extends BasePresenter<FeedView, NewsLocal> {
             ArrayList<NewsLocal> news = ConvertUtils.convertResponseIntoAdapterModel(newsResponse.getResponse(), mContext);
             showData(news);
             mView.saveData(news);
+            mIsDataEmpty = false;
         } catch (IncorrectParsingDataException e) {
             mView.handleError(e, this::connectData);
         }
@@ -87,11 +94,11 @@ class FeedPresenter extends BasePresenter<FeedView, NewsLocal> {
         mView.handleError(error.httpError, this::connectData);
     }
 
-    void handleNetworkError(@NonNull Function reloadFunction,
-                            boolean isDataEmpty) {
-        if (isDataEmpty) {
+    void handleNetworkError(@NonNull Function reloadFunction) {
+        if (mIsDataEmpty) {
             mView.handleNetworkErrorByErrorScreen(reloadFunction);
         } else {
+            mView.showReloadFooterInterface();
             mView.showNetworkErrorMessage();
         }
     }

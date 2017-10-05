@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.kpfu.mikhail.vk.R;
 import com.kpfu.mikhail.vk.content.NewsLocal;
-import com.kpfu.mikhail.vk.widget.BaseAdapter;
+import com.kpfu.mikhail.vk.screen.base.BaseAdapter;
 
 import java.util.ArrayList;
 
@@ -18,8 +18,9 @@ public class FeedAdapter extends BaseAdapter<NewsLocal> {
 
     private FeedCallback mFeedCallback;
 
-    FeedAdapter(@NonNull Context context) {
-        super(new ArrayList<>());
+    FeedAdapter(@NonNull Context context,
+                @NonNull FooterReloadCallback callback) {
+        super(new ArrayList<>(), callback);
         mContext = context;
     }
 
@@ -35,11 +36,11 @@ public class FeedAdapter extends BaseAdapter<NewsLocal> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         if (holder.getItemViewType() == TYPE_ITEM_VIEW) {
-            super.onBindViewHolder(holder, position);
             FeedHolder feedHolder = (FeedHolder) holder;
             NewsLocal newsLocal = getItem(position);
             feedHolder.bind(newsLocal);
         }
+        super.onBindViewHolder(holder, position);
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.kpfu.mikhail.vk.screen.base.activities.navigation_activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.GravityCompat;
@@ -10,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
 import com.kpfu.mikhail.vk.R;
 import com.kpfu.mikhail.vk.content.MenuItem;
@@ -54,6 +56,10 @@ public abstract class NavigationActivity extends BaseFragmentActivity
     }
 
     private void installNetworkErrorScreen() {
+        RelativeLayout networkErrorLayout = getNetworkErrorScreen();
+        networkErrorLayout.setLayoutParams(new ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.MATCH_PARENT));
         mContentLayout.addView(getNetworkErrorScreen(), 0);
     }
 

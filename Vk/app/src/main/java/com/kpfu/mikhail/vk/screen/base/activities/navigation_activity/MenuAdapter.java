@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 
 import com.kpfu.mikhail.vk.R;
 import com.kpfu.mikhail.vk.content.MenuItem;
-import com.kpfu.mikhail.vk.widget.BaseAdapter;
+import com.kpfu.mikhail.vk.screen.base.BaseAdapter;
 
 import java.util.List;
 

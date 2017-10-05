@@ -25,7 +25,7 @@ public class FeedFragment
 
     @Override
     protected FeedAdapter initAdapter() {
-        mAdapter = new FeedAdapter(getContext());
+        mAdapter = new FeedAdapter(getContext(), this);
         return mAdapter;
     }
 
@@ -48,6 +48,7 @@ public class FeedFragment
 
     @Override
     protected void handleNetworkError(Function reloadFunction) {
-        mPresenter.handleNetworkError(reloadFunction, mAdapter.isDataEmpty());
+        mPresenter.handleNetworkError(reloadFunction);
     }
+
 }

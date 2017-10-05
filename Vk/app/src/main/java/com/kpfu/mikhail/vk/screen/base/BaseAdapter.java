@@ -1,4 +1,4 @@
-package com.kpfu.mikhail.vk.widget;
+package com.kpfu.mikhail.vk.screen.base;
 
 import android.support.annotation.CallSuper;
 import android.support.annotation.NonNull;
@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.kpfu.mikhail.vk.R;
+import com.kpfu.mikhail.vk.utils.Function;
 import com.kpfu.mikhail.vk.utils.logger.Logger;
+import com.kpfu.mikhail.vk.widget.EmptyRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,8 @@ import java.util.List;
 public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
 
     private final List<T> mItems = new ArrayList<>();
+
+    private FooterReloadCallback mReloadCallback;
 
     @Nullable
     private OnItemClickListener<T> mOnItemClickListener;
@@ -36,6 +40,12 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
         mItems.addAll(items);
     }
 
+    public BaseAdapter(@NonNull List<T> items,
+                       @NonNull FooterReloadCallback callback) {
+        mItems.addAll(items);
+        mReloadCallback = callback;
+    }
+
     public void attachToRecyclerView(@NonNull EmptyRecyclerView recyclerView) {
         mRecyclerView = recyclerView;
         mRecyclerView.setAdapter(this);
@@ -48,10 +58,10 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
     }
 
     public final void add(@NonNull List<T> values) {
-        int positionStart = 0;
+        /*int positionStart = 0;
         if (!mItems.isEmpty()) {
             positionStart = mItems.size() - 1;
-        }
+        }*/
         mItems.addAll(values);
 //        notifyItemRangeInserted(positionStart, values.size());
         refreshRecycler();
@@ -85,19 +95,35 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
                 return new ProgressViewHolder(view);
             case TYPE_FOOTER_PAGINATION_PROGRESS:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.footer_progress_bar, parent, false);
-                return new ProgressBarFooterViewHolder(view);
+                if (mReloadCallback != null) {
+                    return new PaginationViewHolder(view, mReloadCallback.getFooterReloadFunction());
+                }
             default:
                 return onCreateDefaultViewHolder(parent, viewType);
         }
     }
 
-    protected abstract RecyclerView.ViewHolder onCreateDefaultViewHolder(ViewGroup parent, int viewType);
+    protected abstract ViewHolder onCreateDefaultViewHolder(ViewGroup parent, int viewType);
+
+    private PaginationViewHolder mPaginationHolder;
 
     @CallSuper
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(mInternalListener);
+        if (holder.getItemViewType() == TYPE_FOOTER_PAGINATION_PROGRESS) {
+            mPaginationHolder = ((PaginationViewHolder) holder);
+            mPaginationHolder.bind();
+        }
+    }
+
+   /* public void showFooterProgress() {
+        mPaginationHolder.showFooterProgress();
+    }*/
+
+    public void showReloadFooterInterface() {
+        mPaginationHolder.showReloadInterface();
     }
 
     public void setOnItemClickListener(@Nullable OnItemClickListener<T> onItemClickListener) {
@@ -111,10 +137,6 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
 
     public List<T> getItems() {
         return mItems;
-    }
-
-    public boolean isDataEmpty() {
-        return mItems.isEmpty();
     }
 
     @Override
@@ -168,10 +190,14 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
         }
     }
 
-    private class ProgressBarFooterViewHolder extends ViewHolder {
-        private ProgressBarFooterViewHolder(View itemView) {
+    /*private class PaginationViewHolder extends ViewHolder {
+        private PaginationViewHolder(View itemView) {
             super(itemView);
         }
+    }*/
+
+    public interface FooterReloadCallback {
+        Function getFooterReloadFunction();
     }
 
   /*  @Override

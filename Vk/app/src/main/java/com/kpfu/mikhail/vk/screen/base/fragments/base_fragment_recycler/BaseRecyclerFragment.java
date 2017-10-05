@@ -14,10 +14,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.kpfu.mikhail.vk.R;
+import com.kpfu.mikhail.vk.screen.base.BaseAdapter;
 import com.kpfu.mikhail.vk.screen.base.BasePresenter;
 import com.kpfu.mikhail.vk.screen.base.activities.base_fragment_activity.BaseFragmentActivity;
 import com.kpfu.mikhail.vk.screen.base.fragments.base_fragment.BaseFragment;
-import com.kpfu.mikhail.vk.widget.BaseAdapter;
+import com.kpfu.mikhail.vk.utils.Function;
 import com.kpfu.mikhail.vk.widget.EmptyRecyclerView;
 import com.kpfu.mikhail.vk.widget.EndlessRecyclerScrollListener;
 import com.kpfu.mikhail.vk.widget.EndlessRecyclerScrollListener.PaginationLoadable;
@@ -32,7 +33,7 @@ public abstract class BaseRecyclerFragment
                 P extends BasePresenter<V, Data>>
 
         extends BaseFragment<Data, V, P> implements BaseRecyclerFragmentView<Data>,
-        PaginationLoadable {
+        PaginationLoadable, BaseAdapter.FooterReloadCallback {
 
     @BindView(R.id.main_layout) RelativeLayout mMainLayout;
 
@@ -45,6 +46,8 @@ public abstract class BaseRecyclerFragment
     @BindView(R.id.btn_reload) Button mReloadButton;
 
     private LinearLayoutManager mLayoutManager;
+
+    private Adapter mAdapter;
 
     @Nullable
     @Override
@@ -74,12 +77,11 @@ public abstract class BaseRecyclerFragment
     protected void doActions() {
     }
 
-    ;
-
     protected abstract Adapter initAdapter();
 
     private void setupRecyclerView() {
-        initAdapter().attachToRecyclerView(mRecyclerView);
+        mAdapter = initAdapter();
+        mAdapter.attachToRecyclerView(mRecyclerView);
         mLayoutManager = new LinearLayoutManager(mRecyclerView.getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setEmptyView(mEmpty);
@@ -135,6 +137,15 @@ public abstract class BaseRecyclerFragment
     @Override
     public void onLoadMore() {
         getPresenter().connectData();
+    }
+
+    @Override
+    public Function getFooterReloadFunction() {
+        return getPresenter()::connectData;
+    }
+
+    public void showReloadFooterInterface() {
+        mAdapter.showReloadFooterInterface();
     }
 
 }

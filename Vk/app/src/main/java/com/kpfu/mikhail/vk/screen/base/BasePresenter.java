@@ -30,7 +30,6 @@ public abstract class BasePresenter<View extends BaseView, P extends Parcelable>
     protected abstract void showData(List<P> data);
 
     protected void processRequest(VKRequest request) {
-        mView.showLoading();
         request.executeWithListener(new VKRequest.VKRequestListener() {
             @Override
             public void onComplete(VKResponse response) {

@@ -6,16 +6,23 @@
     android:layout_height="match_parent"
     android:visibility="visible">
 
-    <com.kpfu.mikhail.vk.widget.EmptyRecyclerView
-        android:id="@+id/recyclerView"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:clipToPadding="false"
-        android:overScrollMode="never"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        android:layout_height="match_parent">
+
+        <com.kpfu.mikhail.vk.widget.EmptyRecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
     <RelativeLayout
         android:id="@+id/empty_layout"
@@ -25,24 +32,24 @@
         android:visibility="gone">
 
         <com.kpfu.mikhail.vk.widget.textviews.RobotoRegularTextView
-        android:id="@+id/empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-            android:text="@string/feed.empty"
+            android:id="@+id/empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
+            android:gravity="center"
+            android:text="@string/feed.empty"
+            android:textColor="@color/black"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/btn_reload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:layout_below="@+id/empty"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/text_highlight_color"
-            android:text="@string/refresh.feed.text" />
+            android:layout_marginTop="5dp"
+            android:text="@string/refresh.feed.text"
+            android:textColor="@color/text_highlight_color" />
 
     </RelativeLayout>
 
