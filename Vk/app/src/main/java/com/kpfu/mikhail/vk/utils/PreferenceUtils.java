@@ -41,6 +41,10 @@ public final class PreferenceUtils {
         return Hawk.get(NEXT_FROM, "");
     }
 
+    public static void clearNextFromValue() {
+        Hawk.remove(NEXT_FROM);
+    }
+
     public static boolean isSignedIn() {
         return !getToken().isEmpty();
     }

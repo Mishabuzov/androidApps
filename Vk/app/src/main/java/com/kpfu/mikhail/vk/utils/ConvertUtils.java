@@ -30,8 +30,8 @@ public class ConvertUtils {
         List<Attachment> badAttachments = new ArrayList<>();
         for (NewsItem newsItem : newsResponse.getItems()) {
             filterAttachments(newsItem.getAttachments(), badAttachments);
-            if (!newsItem.getText().isEmpty() || newsItem.getAttachments() != null
-                    && !newsItem.getAttachments().isEmpty()) {
+            if (newsItem.getText() != null && !newsItem.getText().isEmpty()
+                    || newsItem.getAttachments() != null && !newsItem.getAttachments().isEmpty()) {
                 NewsLocal newsLocal = new NewsLocal();
                 setAuthorInfoById(newsItem.getSourceId(), newsResponse, newsLocal, context);
                 newsLocal.setAttachments(newsItem.getAttachments());
@@ -103,7 +103,7 @@ public class ConvertUtils {
 
     private static String convertMillisToHumanReadableFormat(long sec,
                                                              @NonNull Context context) {
-        Date date = new Date(sec*1000);
+        Date date = new Date(sec * 1000);
         SimpleDateFormat dateCalendar = new SimpleDateFormat(
                 context.getString(R.string.date_format), Locale.ENGLISH);
         SimpleDateFormat dateTime = new SimpleDateFormat(

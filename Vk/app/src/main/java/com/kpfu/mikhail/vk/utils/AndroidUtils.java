@@ -1,18 +1,10 @@
 package com.kpfu.mikhail.vk.utils;
 
 
-import android.content.Intent;
-
 import com.kpfu.mikhail.vk.App;
-import com.kpfu.mikhail.vk.BuildConfig;
-import com.kpfu.mikhail.vk.screen.login.LoginActivity;
 import com.vk.sdk.VKSdk;
-import com.vk.sdk.api.VKApiConst;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import io.realm.Realm;
+import java.util.TimeZone;
 
 public class AndroidUtils {
 
@@ -53,11 +45,9 @@ public class AndroidUtils {
         return reference;
     }
 
-    public static Map<String, Object> getParamsMap(){
-        Map<String, Object> paramsMap = new HashMap<>();
-        paramsMap.put(VKApiConst.ACCESS_TOKEN, PreferenceUtils.getToken());
-        paramsMap.put(VKApiConst.VERSION, BuildConfig.API_VERSION);
-        return paramsMap;
+    public static long getCurrentTimeInUnixFormat() {
+        return (System.currentTimeMillis()
+                + TimeZone.getTimeZone("GMT+3").getOffset(System.currentTimeMillis())) / 1000;
     }
 
 }

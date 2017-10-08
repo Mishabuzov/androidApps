@@ -23,7 +23,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder>
 
     private final List<T> mItems = new ArrayList<>();
 
-    private NetworkErrorReloadCallback mReloadCallback;
+    private AdapterCallback mReloadCallback;
 
     @Nullable
     private OnItemClickListener<T> mOnItemClickListener;
@@ -43,7 +43,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder>
     }
 
     public BaseAdapter(@NonNull List<T> items,
-                       @NonNull NetworkErrorReloadCallback callback) {
+                       @NonNull AdapterCallback callback) {
         mItems.addAll(items);
         mReloadCallback = callback;
     }
@@ -59,7 +59,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder>
         refreshRecycler();
     }
 
-    public final void add(@NonNull List<T> values) {
+    public final void addAll(@NonNull List<T> values) {
         /*int positionStart = 0;
         if (!mItems.isEmpty()) {
             positionStart = mItems.size() - 1;
@@ -70,13 +70,17 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder>
     }
 
     public final void changeDataSet(@NonNull List<T> values) {
-        mItems.clear();
+        clearData();
         mItems.addAll(values);
         refreshRecycler();
     }
 
-    public final void clear() {
+    public void clearData() {
         mItems.clear();
+    }
+
+    public final void clear() {
+        clearData();
         refreshRecycler();
     }
 
@@ -144,17 +148,29 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder>
 
     protected boolean mIsNetworkError;
 
+//    protected boolean mIsSwipeRefreshing;
+
     protected static final int TYPE_ITEM_VIEW = 0;
 
     protected static final int TYPE_FOOTER_PAGINATION_PROGRESS = 1;
 
     protected static final int TYPE_NETWORK_ERROR_VIEW = 2;
 
+    /*public void setSwipeRefreshing(boolean isEnable){
+        mIsSwipeRefreshing = isEnable;
+        if(!isEnable){
+            mReloadCallback.hideSwipeRefresh();
+        }
+    }*/
+
     @MainThread
     public void showNetworkErrorView(boolean isEnable) {
         if (mIsNetworkError == isEnable) {
             return;
-        }
+        }/* else if(mIsSwipeRefreshing){
+            setSwipeRefreshing(false);
+            return;
+        }*/
         if (mIsPaginationInProgress) {
             enablePaginationView(false);
         }
@@ -181,6 +197,9 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder>
     }
 
     public void enablePaginationView(boolean isEnable) {
+       /* if(mIsSwipeRefreshing){
+            setSwipeRefreshing(false);
+        }*/
         if (mIsPaginationInProgress == isEnable) {
             return;
         }
@@ -199,8 +218,9 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder>
         }
     }
 
-    public interface NetworkErrorReloadCallback {
+    public interface AdapterCallback {
         Function getReloadFunction();
+//        void hideSwipeRefresh();
     }
 
 }

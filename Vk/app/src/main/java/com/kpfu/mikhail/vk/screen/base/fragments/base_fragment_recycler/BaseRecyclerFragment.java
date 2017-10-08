@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +34,8 @@ public abstract class BaseRecyclerFragment
                 P extends BasePresenter<V, Data>>
 
         extends BaseFragment<Data, V, P> implements BaseRecyclerFragmentView<Data>,
-        PaginationLoadable, BaseAdapter.NetworkErrorReloadCallback {
+        PaginationLoadable, BaseAdapter.AdapterCallback,
+        SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R.id.main_layout) RelativeLayout mMainLayout;
 
@@ -45,7 +47,11 @@ public abstract class BaseRecyclerFragment
 
     @BindView(R.id.btn_reload) Button mReloadButton;
 
+    @BindView(R.id.swipe_refresh_layout) SwipeRefreshLayout mSwipeRefresh;
+
     private LinearLayoutManager mLayoutManager;
+
+    protected boolean mIsSwipeRefreshing;
 
     private Adapter mAdapter;
 
@@ -88,6 +94,18 @@ public abstract class BaseRecyclerFragment
         mRecyclerView.setBackgroundResource(R.color.vk_white);
         mRecyclerView.setDrawingCacheEnabled(true);
         mRecyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+        setupSwipeRefreshLayout();
+    }
+
+    protected void setupSwipeRefreshLayout() {
+        mSwipeRefresh.setEnabled(true);
+        mSwipeRefresh.setOnRefreshListener(this);
+        mSwipeRefresh.setColorSchemeResources(R.color.loading_dialog_and_link_color);
+    }
+
+    protected void hideSwipeRefresh() {
+        mIsSwipeRefreshing = false;
+        mSwipeRefresh.setRefreshing(false);
     }
 
 //    public EmptyRecyclerView getRecyclerView() {
@@ -132,6 +150,10 @@ public abstract class BaseRecyclerFragment
     protected void enablePagination(@NonNull PaginationLoadable loadable) {
         mRecyclerView.addOnScrollListener(new EndlessRecyclerScrollListener(loadable,
                 (LinearLayoutManager) mRecyclerView.getLayoutManager()));
+    }
+
+    protected void disableProgressBar() {
+        mSwipeRefresh.setEnabled(false);
     }
 
     @Override

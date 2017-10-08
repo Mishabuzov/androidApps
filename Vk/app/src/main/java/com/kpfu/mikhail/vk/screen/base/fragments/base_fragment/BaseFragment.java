@@ -32,7 +32,8 @@ public abstract class BaseFragment<Data extends Parcelable, V extends BaseFragme
     public void onCreate(@Nullable Bundle savedInstanceState) {
         if (savedInstanceState != null) {
             mData = savedInstanceState.getParcelableArrayList(DATA);
-        } else {
+        }
+        if (mData == null) {
             mData = new ArrayList<>();
         }
         super.onCreate(savedInstanceState);
@@ -89,6 +90,10 @@ public abstract class BaseFragment<Data extends Parcelable, V extends BaseFragme
         /*if (data != null && !data.isEmpty() && mSavedInstanceState != null) {
             mSavedInstanceState.putParcelableArrayList(DATA, (ArrayList<? extends Parcelable>) data);
         }*/
+    }
+
+    protected void clearData() {
+        mData.clear();
     }
 
     @Override
