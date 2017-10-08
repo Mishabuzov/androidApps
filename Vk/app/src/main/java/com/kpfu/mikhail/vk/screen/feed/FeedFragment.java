@@ -31,7 +31,7 @@ public class FeedFragment
 
     @Override
     public FeedPresenter initPresenter() {
-        mPresenter = new FeedPresenter(this, getContext());
+        mPresenter = new FeedPresenter(this, getContext(), isDataEmpty());
         return mPresenter;
     }
 
@@ -44,6 +44,11 @@ public class FeedFragment
     @Override
     public void handleNetworkErrorByErrorScreen(Function reloadFunction) {
         super.handleNetworkError(reloadFunction);
+    }
+
+    @Override
+    public void showNetworkErrorInAdapter() {
+        mAdapter.showNetworkErrorView(true);
     }
 
     @Override

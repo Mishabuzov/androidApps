@@ -11,7 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 import com.kpfu.mikhail.vk.R;
 import com.kpfu.mikhail.vk.content.MenuItem;
@@ -56,7 +56,7 @@ public abstract class NavigationActivity extends BaseFragmentActivity
     }
 
     private void installNetworkErrorScreen() {
-        RelativeLayout networkErrorLayout = getNetworkErrorScreen();
+        ScrollView networkErrorLayout = getNetworkErrorScreen();
         networkErrorLayout.setLayoutParams(new ConstraintLayout.LayoutParams(
                 ConstraintLayout.LayoutParams.MATCH_PARENT,
                 ConstraintLayout.LayoutParams.MATCH_PARENT));

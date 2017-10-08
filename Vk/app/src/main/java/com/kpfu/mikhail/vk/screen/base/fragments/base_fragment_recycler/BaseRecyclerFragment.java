@@ -33,7 +33,7 @@ public abstract class BaseRecyclerFragment
                 P extends BasePresenter<V, Data>>
 
         extends BaseFragment<Data, V, P> implements BaseRecyclerFragmentView<Data>,
-        PaginationLoadable, BaseAdapter.FooterReloadCallback {
+        PaginationLoadable, BaseAdapter.NetworkErrorReloadCallback {
 
     @BindView(R.id.main_layout) RelativeLayout mMainLayout;
 
@@ -140,12 +140,7 @@ public abstract class BaseRecyclerFragment
     }
 
     @Override
-    public Function getFooterReloadFunction() {
+    public Function getReloadFunction() {
         return getPresenter()::connectData;
     }
-
-    public void showReloadFooterInterface() {
-        mAdapter.showReloadFooterInterface();
-    }
-
 }

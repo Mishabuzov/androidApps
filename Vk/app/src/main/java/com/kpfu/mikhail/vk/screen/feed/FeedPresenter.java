@@ -31,11 +31,12 @@ class FeedPresenter extends BasePresenter<FeedView, NewsLocal> {
     private boolean mIsDataEmpty;
 
     FeedPresenter(@NonNull FeedView view,
-                  @NonNull Context context) {
+                  @NonNull Context context,
+                  boolean isDataEmpty) {
         super(view);
         mView = view;
         mContext = context;
-        mIsDataEmpty = true;
+        mIsDataEmpty = isDataEmpty;
     }
 
     @Override
@@ -98,7 +99,7 @@ class FeedPresenter extends BasePresenter<FeedView, NewsLocal> {
         if (mIsDataEmpty) {
             mView.handleNetworkErrorByErrorScreen(reloadFunction);
         } else {
-            mView.showReloadFooterInterface();
+            mView.showNetworkErrorInAdapter();
             mView.showNetworkErrorMessage();
         }
     }

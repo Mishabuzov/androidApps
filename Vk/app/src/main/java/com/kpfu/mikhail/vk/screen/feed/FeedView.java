@@ -12,4 +12,6 @@ interface FeedView extends BaseRecyclerFragmentView<NewsLocal> {
 
     void handleNetworkErrorByErrorScreen(Function reloadFunction);
 
+    void showNetworkErrorInAdapter();
+
 }

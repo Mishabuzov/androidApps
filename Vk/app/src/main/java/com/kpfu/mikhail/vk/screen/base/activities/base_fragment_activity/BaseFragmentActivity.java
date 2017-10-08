@@ -15,7 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.kpfu.mikhail.vk.R;
@@ -31,7 +31,7 @@ public abstract class BaseFragmentActivity extends BaseActivity
 
     private BaseActivityWithFragmentPresenter mFragmentPresenter;
 
-    private RelativeLayout mNetworkErrorLayout;
+    private ScrollView mNetworkErrorLayout;
 
     private TextView mNetworkErrorTv;
 
@@ -126,12 +126,12 @@ public abstract class BaseFragmentActivity extends BaseActivity
     }
 
     private void initNetworkErrorScreen() {
-        mNetworkErrorLayout = (RelativeLayout) getLayoutInflater().inflate(R.layout.network_error_item, null);
+        mNetworkErrorLayout = (ScrollView) getLayoutInflater().inflate(R.layout.network_error_item, null);
         mNetworkErrorTv = (TextView) mNetworkErrorLayout.findViewById(R.id.tv_network_error_message);
         mButtonReload = (Button) mNetworkErrorLayout.findViewById(R.id.btn_reload);
     }
 
-    protected RelativeLayout getNetworkErrorScreen() {
+    protected ScrollView getNetworkErrorScreen() {
         return mNetworkErrorLayout;
     }
 

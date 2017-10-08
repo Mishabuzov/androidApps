@@ -1,6 +1,7 @@
 package com.kpfu.mikhail.vk.screen.base;
 
 import android.support.annotation.CallSuper;
+import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -17,11 +18,12 @@ import com.kpfu.mikhail.vk.widget.EmptyRecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
+public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder>
+        implements NetworkErrorViewHolder.NetworkHolderCallback {
 
     private final List<T> mItems = new ArrayList<>();
 
-    private FooterReloadCallback mReloadCallback;
+    private NetworkErrorReloadCallback mReloadCallback;
 
     @Nullable
     private OnItemClickListener<T> mOnItemClickListener;
@@ -41,7 +43,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
     }
 
     public BaseAdapter(@NonNull List<T> items,
-                       @NonNull FooterReloadCallback callback) {
+                       @NonNull NetworkErrorReloadCallback callback) {
         mItems.addAll(items);
         mReloadCallback = callback;
     }
@@ -88,16 +90,14 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
-            case TYPE_PROGRESS_VIEW:
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.progress_bar, parent, false);
-                view.setLayoutParams(new RecyclerView.LayoutParams(
-                        mRecyclerView.getWidth(), mRecyclerView.getHeight()));
-                return new ProgressViewHolder(view);
             case TYPE_FOOTER_PAGINATION_PROGRESS:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.footer_progress_bar, parent, false);
-                if (mReloadCallback != null) {
-                    return new PaginationViewHolder(view, mReloadCallback.getFooterReloadFunction());
-                }
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.footer_progress_bar, parent, false);
+                return new PaginationViewHolder(view);
+            case TYPE_NETWORK_ERROR_VIEW:
+                view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.recycler_network_error, parent, false);
+                return new NetworkErrorViewHolder(view, mReloadCallback.getReloadFunction(), this);
             default:
                 return onCreateDefaultViewHolder(parent, viewType);
         }
@@ -105,25 +105,15 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
 
     protected abstract ViewHolder onCreateDefaultViewHolder(ViewGroup parent, int viewType);
 
-    private PaginationViewHolder mPaginationHolder;
-
     @CallSuper
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(mInternalListener);
-        if (holder.getItemViewType() == TYPE_FOOTER_PAGINATION_PROGRESS) {
-            mPaginationHolder = ((PaginationViewHolder) holder);
-            mPaginationHolder.bind();
+        if (holder.getItemViewType() == TYPE_NETWORK_ERROR_VIEW) {
+            NetworkErrorViewHolder h = ((NetworkErrorViewHolder) holder);
+            h.bind();
         }
-    }
-
-   /* public void showFooterProgress() {
-        mPaginationHolder.showFooterProgress();
-    }*/
-
-    public void showReloadFooterInterface() {
-        mPaginationHolder.showReloadInterface();
     }
 
     public void setOnItemClickListener(@Nullable OnItemClickListener<T> onItemClickListener) {
@@ -150,59 +140,67 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
 
     }
 
-    protected boolean isProgressView;
+    protected boolean mIsPaginationInProgress;
 
-    protected boolean isPaginationInProgress;
+    protected boolean mIsNetworkError;
 
     protected static final int TYPE_ITEM_VIEW = 0;
 
-    protected static final int TYPE_PROGRESS_VIEW = 1;
+    protected static final int TYPE_FOOTER_PAGINATION_PROGRESS = 1;
 
-    protected static final int TYPE_FOOTER_PAGINATION_PROGRESS = 2;
+    protected static final int TYPE_NETWORK_ERROR_VIEW = 2;
+
+    @MainThread
+    public void showNetworkErrorView(boolean isEnable) {
+        if (mIsNetworkError == isEnable) {
+            return;
+        }
+        if (mIsPaginationInProgress) {
+            enablePaginationView(false);
+        }
+        mIsNetworkError = isEnable;
+        configExtraItem(isEnable);
+    }
 
     @Override
     public int getItemViewType(int position) {
-        if (isProgressView) {
-            return TYPE_PROGRESS_VIEW;
-        } else if (position == getItemCount() - 1 && isPaginationInProgress) {
+        if (position == getItemCount() - 1 && mIsPaginationInProgress) {
             return TYPE_FOOTER_PAGINATION_PROGRESS;
+        } else if (position == getItemCount() - 1 && mIsNetworkError) {
+            return TYPE_NETWORK_ERROR_VIEW;
         }
         return TYPE_ITEM_VIEW;
     }
 
-    public void enablePaginationView(boolean enable) {
-        if (isPaginationInProgress == enable) {
-            return;
-        }
-        isPaginationInProgress = enable;
-        Logger.d("Layout manager items count: " + mRecyclerView.getLayoutManager().getItemCount());
-        Logger.d("Adapter items count: " + mRecyclerView.getLayoutManager().getItemCount());
-        if (enable) {
+    private void configExtraItem(boolean isEnable) {
+        if (isEnable) {
             notifyItemInserted(getItemCount());
         } else {
             notifyItemRemoved(getItemCount());
         }
     }
 
-    private class ProgressViewHolder extends ViewHolder {
-        private ProgressViewHolder(View itemView) {
-            super(itemView);
+    public void enablePaginationView(boolean isEnable) {
+        if (mIsPaginationInProgress == isEnable) {
+            return;
         }
+        if (mIsNetworkError) {
+            showNetworkErrorView(false);
+        }
+        mIsPaginationInProgress = isEnable;
+        Logger.d("Layout manager items count: " + mRecyclerView.getLayoutManager().getItemCount());
+        Logger.d("Adapter items count: " + mRecyclerView.getLayoutManager().getItemCount());
+        configExtraItem(isEnable);
     }
 
-    /*private class PaginationViewHolder extends ViewHolder {
+    private class PaginationViewHolder extends ViewHolder {
         private PaginationViewHolder(View itemView) {
             super(itemView);
         }
-    }*/
-
-    public interface FooterReloadCallback {
-        Function getFooterReloadFunction();
     }
 
-  /*  @Override
-    public void onViewAttachedToWindow(VH holder) {
-        super.onViewAttachedToWindow(holder);
-    }*/
+    public interface NetworkErrorReloadCallback {
+        Function getReloadFunction();
+    }
 
 }

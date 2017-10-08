@@ -19,7 +19,7 @@ public class FeedAdapter extends BaseAdapter<NewsLocal> {
     private FeedCallback mFeedCallback;
 
     FeedAdapter(@NonNull Context context,
-                @NonNull FooterReloadCallback callback) {
+                @NonNull NetworkErrorReloadCallback callback) {
         super(new ArrayList<>(), callback);
         mContext = context;
     }

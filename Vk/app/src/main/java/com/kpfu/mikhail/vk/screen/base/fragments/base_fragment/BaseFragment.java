@@ -70,7 +70,11 @@ public abstract class BaseFragment<Data extends Parcelable, V extends BaseFragme
         return mPresenter;
     }
 
-//    private Bundle mSavedInstanceState;
+    protected boolean isDataEmpty() {
+        return mData.size() == 0;
+    }
+
+    //    private Bundle mSavedInstanceState;
 
     protected void getDataAndShow() {
       /*  if (savedInstanceState != null) {
