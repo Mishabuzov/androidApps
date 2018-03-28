@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/card_background"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    android:paddingTop="30dp">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/login_text_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/login_edittext_hint"
+        android:theme="@style/TextLabel">
+
+        <EditText
+            android:id="@+id/edittext_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/content_login_edittext_hint_login"
+            android:lines="1"
+            android:singleLine="true"
+            android:textColor="@color/login_textcolor"
+            android:textSize="16sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <include
+        android:id="@+id/password_frame"
+        layout="@layout/password_frame_with_show_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_text_input_layout" />
+
+    <Button
+        android:id="@+id/action_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/password_frame"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorAccent"
+        android:text="@string/content_login_btn_text_login"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+    <!--     <Button
+             android:id="@+id/register_button"
+             style="?attr/borderlessButtonStyle"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@id/btn_login"
+             android:layout_centerHorizontal="true"
+             android:layout_marginTop="50dp"
+             android:text="@string/register.authorization"
+             android:textAllCaps="false"
+             android:textColor="@android:color/white"
+             android:textSize="18sp" />-->
+
+    <com.example.tom.itistracker.widgets.fonts.textviews.RobotoBoldTextView
+        android:id="@+id/text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/action_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/app_name"
+        android:textColor="@android:color/white"
+        android:textSize="25sp" />
+
+</RelativeLayout>

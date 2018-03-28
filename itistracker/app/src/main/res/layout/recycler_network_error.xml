@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/network_error_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/colorPrimaryDark"
+    android:gravity="center"
+    android:padding="13dp">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/network_error_message"
+        android:textColor="@color/text_on_dark_background_color"
+        android:textSize="14sp"
+        android:layout_weight="7" />
+
+    <Button
+        android:id="@+id/reload_button"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/error_reload_button"
+        android:textColor="@color/enable_button_text_without_scope"
+        android:layout_marginStart="5dp"
+        android:layout_weight="3" />
+
+</LinearLayout>

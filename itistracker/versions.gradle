@@ -1,0 +1,15 @@
+ext {
+    supportVersion = '27.1.0'
+    stethoVersion = '1.5.0'
+    okhttpVersion = '3.10.0'
+    retrofitVersion = '2.4.0'
+    rxandroidVersion = '2.0.2'
+    rxjavaVersion = '2.1.12'
+    circleimageviewVersion = '2.2.0'
+    butterknifeVersion = '8.8.1'
+    picassoVersion = '2.71828'
+    moxyVersion = '1.5.3'
+    daggerVersion = '2.15'
+    hawkVersion = '1.23'
+    roundedImageVersion = '2.3.0'
+}
