@@ -9,9 +9,12 @@ import com.kpfu.mikhail.weathermvp.content.FullWeatherInfo;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.Realm;
+import io.realm.RealmResults;
 import ru.arturvasilov.rxloader.RxUtils;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 public class DefaultWeatherRepository implements WeatherRepository {
@@ -21,7 +24,7 @@ public class DefaultWeatherRepository implements WeatherRepository {
     public Observable<FullWeatherInfo> getWeatherFor10Days(@NonNull String cityName) {
         return ApiFactory.getWeatherService()
                 .getWeatherFor10DaysByCityName(cityName, 10)
-                /*.flatMap(fullWeatherInfo -> {
+                .flatMap(fullWeatherInfo -> {
                     Realm.getDefaultInstance().executeTransaction(realm -> {
                         RealmResults<FullWeatherInfo> fullWeatherInfos = realm
                                 .where(FullWeatherInfo.class)
@@ -36,7 +39,7 @@ public class DefaultWeatherRepository implements WeatherRepository {
                     Realm realm = Realm.getDefaultInstance();
                     RealmResults<FullWeatherInfo> fullWeatherInfos = realm.where(FullWeatherInfo.class).findAll();
                     return Observable.just(realm.copyFromRealm(fullWeatherInfos).get(0));
-                })*/
+                })
                 .compose(RxUtils.async());
     }
 
@@ -58,24 +61,18 @@ public class DefaultWeatherRepository implements WeatherRepository {
                     }
                     return currentWeatherInfos;
                 })
-                /*.flatMap(new Func1<List<CurrentWeatherInfo>, Observable<? extends List<CurrentWeatherInfo>>>() {
-                    @Override
-                    public Observable<? extends List<CurrentWeatherInfo>> call(List<CurrentWeatherInfo> currentWeatherInfos) {
-                        Realm.getDefaultInstance().executeTransaction(realm -> {
-                            realm.delete(CurrentWeatherInfo.class);
-                            realm.insert(currentWeatherInfos);
-                        });
-                        return Observable.just(currentWeatherInfos);
-                    }
+                .flatMap(currentWeatherInfos -> {
+                    Realm.getDefaultInstance().executeTransaction(realm -> {
+                        realm.delete(CurrentWeatherInfo.class);
+                        realm.insert(currentWeatherInfos);
+                    });
+                    return Observable.just(currentWeatherInfos);
                 })
-                .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<CurrentWeatherInfo>>>() {
-                    @Override
-                    public Observable<? extends List<CurrentWeatherInfo>> call(Throwable throwable) {
-                        Realm realm = Realm.getDefaultInstance();
-                        RealmResults<CurrentWeatherInfo> currentWeatherInfos = realm.where(CurrentWeatherInfo.class).findAll();
-                        return Observable.just(realm.copyFromRealm(currentWeatherInfos));
-                    }
-                })*/
+                .onErrorResumeNext(throwable -> {
+                    Realm realm = Realm.getDefaultInstance();
+                    RealmResults<CurrentWeatherInfo> currentWeatherInfos = realm.where(CurrentWeatherInfo.class).findAll();
+                    return Observable.just(realm.copyFromRealm(currentWeatherInfos));
+                })
                 .compose(RxUtils.async());
     }
 

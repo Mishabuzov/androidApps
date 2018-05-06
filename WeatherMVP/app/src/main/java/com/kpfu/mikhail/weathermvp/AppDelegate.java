@@ -4,6 +4,10 @@ import android.app.Application;
 
 import com.facebook.stetho.Stetho;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.rx.RealmObservableFactory;
+
 public class AppDelegate extends Application {
 
     @Override
@@ -13,5 +17,10 @@ public class AppDelegate extends Application {
         if (BuildConfig.DEBUG) {
             Stetho.initializeWithDefaults(this);
         }
+        Realm.init(this);
+        RealmConfiguration configuration = new RealmConfiguration.Builder()
+                .rxFactory(new RealmObservableFactory())
+                .build();
+        Realm.setDefaultConfiguration(configuration);
     }
 }
