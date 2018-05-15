@@ -28,14 +28,19 @@ class MenuItemHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.menu_layout) RelativeLayout mMenuLayout;
 
-    private MenuItemCallback mMenuItemCallback;
+    @NonNull
+    private final MenuItemCallback mMenuItemCallback;
 
-    private ClickCallback mClickCallback;
+    @NonNull
+    private final ClickCallback mClickCallback;
 
+    //TODO: SET THE FIRST SELECTED ITEM TO AVOID NPE;
+    @NonNull
+    private MenuItem mFirstSelectedItem;
 
     MenuItemHolder(@NonNull View itemView,
-                   @NonNull MenuItemCallback menuItemCallback,
-                   @NonNull ClickCallback clickCallback) {
+                   @NonNull final MenuItemCallback menuItemCallback,
+                   @NonNull final ClickCallback clickCallback) {
         super(itemView);
         ButterKnife.bind(this, itemView);
         mMenuItemCallback = menuItemCallback;
